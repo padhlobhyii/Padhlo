@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Padhlo</title>
 
 <style>
@@ -20,9 +19,7 @@ body{
   min-height:100vh;
 }
 
-button,
-input,
-textarea{
+button,input,textarea{
   font:inherit;
 }
 
@@ -35,12 +32,6 @@ button{
   max-width:760px;
   margin:auto;
   padding:24px 0 50px;
-}
-
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
 }
 
 .logo{
@@ -60,7 +51,7 @@ header{
 }
 
 .page{
-  padding-top:60px;
+  padding-top:55px;
 }
 
 .hidden{
@@ -95,7 +86,8 @@ h2{
   margin-bottom:30px;
 }
 
-.options{
+.options,
+.list{
   display:grid;
   gap:14px;
 }
@@ -109,7 +101,6 @@ h2{
   display:flex;
   align-items:center;
   text-align:left;
-  transition:.15s;
 }
 
 .option:active,
@@ -125,15 +116,11 @@ h2{
   border-radius:16px;
   background:#f0f0f2;
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   font-size:25px;
   margin-right:15px;
   flex-shrink:0;
-}
-
-.option strong{
-  font-size:16px;
 }
 
 .option small{
@@ -169,7 +156,6 @@ h2{
   padding:20px 16px;
   text-align:left;
   min-height:105px;
-  transition:.15s;
 }
 
 .card strong{
@@ -191,15 +177,6 @@ h2{
   margin-bottom:17px;
 }
 
-.search:focus{
-  border-color:#999;
-}
-
-.list{
-  display:grid;
-  gap:11px;
-}
-
 .chapter,
 .resource{
   width:100%;
@@ -208,7 +185,6 @@ h2{
   border-radius:17px;
   padding:18px;
   text-align:left;
-  transition:.15s;
 }
 
 .chapter strong{
@@ -219,10 +195,6 @@ h2{
   display:block;
   color:#777;
   margin-top:6px;
-}
-
-.resource{
-  display:block;
 }
 
 .resource-icon{
@@ -283,28 +255,16 @@ textarea{
   line-height:1.55;
 }
 
-.empty{
-  background:#fff;
-  border:1px solid #e1e1e5;
-  border-radius:16px;
-  padding:20px;
-  color:#777;
-}
-
 footer{
   text-align:center;
   color:#999;
   font-size:12px;
-  margin-top:75px;
+  margin-top:70px;
 }
 
 @media(max-width:500px){
   .app{
     width:90%;
-  }
-
-  .grid{
-    grid-template-columns:1fr 1fr;
   }
 }
 </style>
@@ -315,10 +275,8 @@ footer{
 <div class="app">
 
 <header>
-  <div>
-    <div class="logo">Padh<span>lo</span></div>
-    <div class="tagline">Study smarter. Learn better.</div>
-  </div>
+  <div class="logo">Padh<span>lo</span></div>
+  <div class="tagline">Study smarter. Learn better.</div>
 </header>
 
 
@@ -363,7 +321,6 @@ footer{
     </button>
 
   </div>
-
 </section>
 
 
@@ -372,4 +329,663 @@ footer{
 
   <button class="back" type="button" onclick="showPage('home')">
     ← Back
-  </
+  </button>
+
+  <div class="label">SCHOOL STUDY</div>
+
+  <h2>Choose your class</h2>
+
+  <div class="grid">
+
+    <button class="card" type="button" onclick="openClass(9)">
+      <strong>Class 9</strong>
+      <small>Subjects & chapters</small>
+    </button>
+
+    <button class="card" type="button" onclick="openClass(10)">
+      <strong>Class 10</strong>
+      <small>Subjects & chapters</small>
+    </button>
+
+    <button class="card" type="button" onclick="openClass(11)">
+      <strong>Class 11</strong>
+      <small>Subjects & chapters</small>
+    </button>
+
+    <button class="card" type="button" onclick="openClass(12)">
+      <strong>Class 12</strong>
+      <small>Subjects & chapters</small>
+    </button>
+
+  </div>
+</section>
+
+
+<!-- SUBJECTS -->
+<section id="subjects" class="page hidden">
+
+  <button class="back" type="button" onclick="showPage('school')">
+    ← Back
+  </button>
+
+  <div class="label" id="classLabel">CLASS</div>
+
+  <h2>Choose your subject</h2>
+
+  <input
+    id="subjectSearch"
+    class="search"
+    type="search"
+    placeholder="Search subject..."
+  >
+
+  <div id="subjectsList" class="grid"></div>
+
+</section>
+
+
+<!-- CHAPTERS -->
+<section id="chapters" class="page hidden">
+
+  <button class="back" type="button" onclick="showPage('subjects')">
+    ← Back
+  </button>
+
+  <div class="label" id="subjectLabel">SUBJECT</div>
+
+  <h2>Choose a chapter</h2>
+
+  <input
+    id="chapterSearch"
+    class="search"
+    type="search"
+    placeholder="Search chapter..."
+  >
+
+  <div id="chaptersList" class="list"></div>
+
+</section>
+
+
+<!-- RESOURCES -->
+<section id="resources" class="page hidden">
+
+  <button class="back" type="button" onclick="showPage('chapters')">
+    ← Back
+  </button>
+
+  <div class="label">CHAPTER RESOURCES</div>
+
+  <h2 id="chapterTitle">Chapter</h2>
+
+  <div class="list">
+
+    <button class="resource" type="button" onclick="resourceMessage('Lecture')">
+      <div class="resource-icon">🎥</div>
+      <strong>Best Lecture</strong>
+      <p>Video lecture for this chapter.</p>
+    </button>
+
+    <button class="resource" type="button" onclick="resourceMessage('Revision')">
+      <div class="resource-icon">⚡</div>
+      <strong>Rapid Revision</strong>
+      <p>Quick revision of important concepts.</p>
+    </button>
+
+    <button class="resource" type="button" onclick="resourceMessage('Notes')">
+      <div class="resource-icon">📒</div>
+      <strong>Notes</strong>
+      <p>Simple exam-focused notes.</p>
+    </button>
+
+    <button class="resource" type="button" onclick="resourceMessage('Practice')">
+      <div class="resource-icon">📝</div>
+      <strong>Practice</strong>
+      <p>Practice questions for the chapter.</p>
+    </button>
+
+    <button class="resource" type="button" onclick="resourceMessage('PYQs')">
+      <div class="resource-icon">📚</div>
+      <strong>PYQs</strong>
+      <p>Previous-year questions.</p>
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ENTRANCE -->
+<section id="entrance" class="page hidden">
+
+  <button class="back" type="button" onclick="showPage('home')">
+    ← Back
+  </button>
+
+  <div class="label">ENTRANCE PREPARATION</div>
+
+  <h2>Choose your exam</h2>
+
+  <div class="grid">
+
+    <button class="card" type="button" onclick="openExam('JMI')">
+      <strong>🎯 JMI</strong>
+      <small>Preparation</small>
+    </button>
+
+    <button class="card" type="button" onclick="openExam('AMU')">
+      <strong>🎓 AMU</strong>
+      <small>Preparation</small>
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- EXAM -->
+<section id="exam" class="page hidden">
+
+  <button class="back" type="button" onclick="showPage('entrance')">
+    ← Back
+  </button>
+
+  <div class="label">ENTRANCE</div>
+
+  <h2 id="examTitle">Preparation</h2>
+
+  <div class="list">
+
+    <button class="resource" type="button" onclick="resourceMessage('Schedule')">
+      <div class="resource-icon">📅</div>
+      <strong>Study Schedule</strong>
+      <p>Daily and weekly preparation plan.</p>
+    </button>
+
+    <button class="resource" type="button" onclick="resourceMessage('Videos')">
+      <div class="resource-icon">🎥</div>
+      <strong>Videos</strong>
+      <p>Useful preparation lectures.</p>
+    </button>
+
+    <button class="resource" type="button" onclick="resourceMessage('Material')">
+      <div class="resource-icon">📒</div>
+      <strong>Study Material</strong>
+      <p>Important preparation material.</p>
+    </button>
+
+    <button class="resource" type="button" onclick="resourceMessage('PYQs')">
+      <div class="resource-icon">📚</div>
+      <strong>PYQs</strong>
+      <p>Previous-year questions.</p>
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- AI ASSISTANT -->
+<section id="ai" class="page hidden">
+
+  <button class="back" type="button" onclick="showPage('home')">
+    ← Back
+  </button>
+
+  <div class="label">AI STUDY ASSISTANT</div>
+
+  <h2>Plan your study</h2>
+
+  <div class="ai-box">
+
+    <p>
+      Tell us your class, exam date and what you need to finish.
+    </p>
+
+    <textarea
+      id="aiText"
+      placeholder="Example: Class 10, boards in 60 days, Maths and Science are left..."
+    ></textarea>
+
+    <button class="primary" type="button" onclick="createPlan()">
+      Create Plan
+    </button>
+
+    <div id="aiResult" class="result hidden"></div>
+
+  </div>
+
+</section>
+
+
+<footer>
+  Padhlo • Learn better
+</footer>
+
+</div>
+
+
+<script>
+
+"use strict";
+
+
+/* PAGE NAVIGATION */
+
+function showPage(pageId){
+
+  var pages = document.querySelectorAll(".page");
+
+  pages.forEach(function(page){
+    page.classList.add("hidden");
+  });
+
+  var selectedPage = document.getElementById(pageId);
+
+  if(selectedPage){
+    selectedPage.classList.remove("hidden");
+  }
+
+  window.scrollTo(0,0);
+}
+
+
+/* SUBJECT DATA */
+
+var subjectsByClass = {
+
+  9: [
+    "Mathematics",
+    "Science",
+    "Social Science",
+    "English",
+    "Hindi"
+  ],
+
+  10: [
+    "Mathematics",
+    "Science",
+    "Social Science",
+    "English",
+    "Hindi"
+  ],
+
+  11: [
+    "Physics",
+    "Chemistry",
+    "Mathematics",
+    "Biology",
+    "English"
+  ],
+
+  12: [
+    "Physics",
+    "Chemistry",
+    "Mathematics",
+    "Biology",
+    "English"
+  ]
+
+};
+
+
+/* CHAPTER DATA */
+
+var chaptersBySubject = {
+
+  "Mathematics": [
+    "Real Numbers",
+    "Polynomials",
+    "Pair of Linear Equations",
+    "Quadratic Equations",
+    "Arithmetic Progressions",
+    "Triangles",
+    "Coordinate Geometry",
+    "Introduction to Trigonometry",
+    "Applications of Trigonometry",
+    "Circles",
+    "Areas Related to Circles",
+    "Surface Areas and Volumes",
+    "Statistics",
+    "Probability"
+  ],
+
+  "Science": [
+    "Chemical Reactions and Equations",
+    "Acids, Bases and Salts",
+    "Metals and Non-metals",
+    "Carbon Compounds",
+    "Life Processes",
+    "Control and Coordination",
+    "How do Organisms Reproduce",
+    "Heredity",
+    "Light",
+    "Human Eye and Colourful World",
+    "Electricity",
+    "Magnetic Effects of Electric Current",
+    "Our Environment"
+  ],
+
+  "Social Science": [
+    "Resources and Development",
+    "Forest and Wildlife Resources",
+    "Water Resources",
+    "Agriculture",
+    "Manufacturing Industries",
+    "Power Sharing",
+    "Federalism",
+    "Gender, Religion and Caste",
+    "Development",
+    "Sectors of the Economy",
+    "Money and Credit",
+    "Globalisation and the Indian Economy"
+  ],
+
+  "English": [
+    "Reading",
+    "Writing",
+    "Grammar",
+    "Literature"
+  ],
+
+  "Hindi": [
+    "गद्य",
+    "पद्य",
+    "व्याकरण",
+    "लेखन"
+  ],
+
+  "Physics": [
+    "Units and Measurements",
+    "Motion",
+    "Laws of Motion",
+    "Work, Energy and Power",
+    "Gravitation",
+    "Thermodynamics",
+    "Oscillations",
+    "Waves",
+    "Electrostatics",
+    "Current Electricity",
+    "Magnetism",
+    "Electromagnetic Induction",
+    "Optics"
+  ],
+
+  "Chemistry": [
+    "Some Basic Concepts of Chemistry",
+    "Structure of Atom",
+    "Classification of Elements",
+    "Chemical Bonding",
+    "Thermodynamics",
+    "Equilibrium",
+    "Redox Reactions",
+    "Organic Chemistry",
+    "Hydrocarbons"
+  ],
+
+  "Biology": [
+    "The Living World",
+    "Biological Classification",
+    "Plant Kingdom",
+    "Animal Kingdom",
+    "Cell",
+    "Biomolecules",
+    "Human Physiology",
+    "Genetics",
+    "Evolution",
+    "Ecology"
+  ]
+
+};
+
+
+var currentClass = "";
+var currentSubject = "";
+
+
+/* CLASS SELECTION */
+
+function openClass(classNumber){
+
+  currentClass = String(classNumber);
+
+  document.getElementById("classLabel").textContent =
+    "CLASS " + classNumber;
+
+  document.getElementById("subjectSearch").value = "";
+
+  renderSubjects(
+    subjectsByClass[classNumber] || []
+  );
+
+  showPage("subjects");
+}
+
+
+/* SUBJECT LIST */
+
+function renderSubjects(subjectList){
+
+  var container =
+    document.getElementById("subjectsList");
+
+  container.innerHTML = "";
+
+  subjectList.forEach(function(subject){
+
+    var button =
+      document.createElement("button");
+
+    button.type = "button";
+    button.className = "card";
+
+    var title =
+      document.createElement("strong");
+
+    title.textContent = subject;
+
+    var info =
+      document.createElement("small");
+
+    info.textContent = "View chapters →";
+
+    button.appendChild(title);
+    button.appendChild(info);
+
+    button.addEventListener("click",function(){
+      openSubject(subject);
+    });
+
+    container.appendChild(button);
+
+  });
+}
+
+
+/* SUBJECT SEARCH */
+
+document
+  .getElementById("subjectSearch")
+  .addEventListener("input",function(){
+
+    var query =
+      this.value.toLowerCase().trim();
+
+    var subjects =
+      subjectsByClass[currentClass] || [];
+
+    var filtered =
+      subjects.filter(function(subject){
+
+        return subject
+          .toLowerCase()
+          .includes(query);
+
+      });
+
+    renderSubjects(filtered);
+
+  });
+
+
+/* SUBJECT SELECTION */
+
+function openSubject(subject){
+
+  currentSubject = subject;
+
+  document.getElementById("subjectLabel").textContent =
+    subject.toUpperCase();
+
+  document.getElementById("chapterSearch").value = "";
+
+  renderChapters(
+    chaptersBySubject[subject] || []
+  );
+
+  showPage("chapters");
+}
+
+
+/* CHAPTER LIST */
+
+function renderChapters(chapterList){
+
+  var container =
+    document.getElementById("chaptersList");
+
+  container.innerHTML = "";
+
+  chapterList.forEach(function(chapter,index){
+
+    var button =
+      document.createElement("button");
+
+    button.type = "button";
+    button.className = "chapter";
+
+    var title =
+      document.createElement("strong");
+
+    title.textContent =
+      (index + 1) + ". " + chapter;
+
+    var info =
+      document.createElement("small");
+
+    info.textContent =
+      "Lecture • Revision • Notes • Practice • PYQ";
+
+    button.appendChild(title);
+    button.appendChild(info);
+
+    button.addEventListener("click",function(){
+      openChapter(chapter);
+    });
+
+    container.appendChild(button);
+
+  });
+}
+
+
+/* CHAPTER SEARCH */
+
+document
+  .getElementById("chapterSearch")
+  .addEventListener("input",function(){
+
+    var query =
+      this.value.toLowerCase().trim();
+
+    var chapters =
+      chaptersBySubject[currentSubject] || [];
+
+    var filtered =
+      chapters.filter(function(chapter){
+
+        return chapter
+          .toLowerCase()
+          .includes(query);
+
+      });
+
+    renderChapters(filtered);
+
+  });
+
+
+/* CHAPTER SELECTION */
+
+function openChapter(chapter){
+
+  document.getElementById("chapterTitle").textContent =
+    chapter;
+
+  showPage("resources");
+}
+
+
+/* RESOURCE BUTTONS */
+
+function resourceMessage(name){
+
+  alert(
+    name +
+    " section is ready. Content can be added here."
+  );
+
+}
+
+
+/* JMI / AMU */
+
+function openExam(exam){
+
+  document.getElementById("examTitle").textContent =
+    exam + " Preparation";
+
+  showPage("exam");
+}
+
+
+/* AI STUDY ASSISTANT */
+
+function createPlan(){
+
+  var text =
+    document.getElementById("aiText").value.trim();
+
+  var result =
+    document.getElementById("aiResult");
+
+  result.classList.remove("hidden");
+
+  if(!text){
+
+    result.innerHTML =
+      "<strong>Thoda detail likho.</strong><br><br>" +
+      "Class, exam date aur subjects batao.";
+
+    return;
+  }
+
+  result.innerHTML =
+    "<strong>Your Study Plan</strong><br><br>" +
+    "• Difficult topics ko priority do.<br>" +
+    "• Roz focused study sessions rakho.<br>" +
+    "• Har session ke baad short revision karo.<br>" +
+    "• Har week PYQs aur practice questions solve karo.<br>" +
+    "• Exam ke paas mock tests aur rapid revision badhao.";
+
+}
+
+
+/* START HOME PAGE */
+
+showPage("home");
+
+</script>
+
+</body>
+    </html>
