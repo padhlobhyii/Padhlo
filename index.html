@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Padhlo — Learn Without Confusion</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 :root{
   --bg:#f5f7ff;
-  --white:#fff;
+  --white:#ffffff;
   --text:#171923;
   --muted:#74798a;
-  --line:#e7e9f1;
+  --line:#e5e7ef;
   --purple:#6657f5;
   --purple2:#8b5cf6;
   --blue:#3b82f6;
-  --green:#10b981;
   --orange:#f59e0b;
   --pink:#ec4899;
-  --shadow:0 15px 40px rgba(40,45,80,.09);
+  --green:#10b981;
+  --shadow:0 15px 40px rgba(40,45,80,.10);
 }
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   font-family:Arial,Helvetica,sans-serif;
@@ -35,9 +44,23 @@ body{
   min-height:100vh;
 }
 
-button,input,textarea{font:inherit}
-button{cursor:pointer}
-button:focus,input:focus,textarea:focus{outline:none}
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+button:focus,
+input:focus,
+textarea:focus,
+select:focus{
+  outline:none;
+}
 
 .app{
   width:92%;
@@ -46,7 +69,7 @@ button:focus,input:focus,textarea:focus{outline:none}
   padding:22px 0 60px;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 header{
   display:flex;
@@ -80,7 +103,9 @@ header{
   letter-spacing:-1.7px;
 }
 
-.logo span{font-weight:400}
+.logo span{
+  font-weight:400;
+}
 
 .tagline{
   color:var(--muted);
@@ -88,18 +113,26 @@ header{
   margin-top:3px;
 }
 
-/* PAGE */
+/* ================= PAGES ================= */
 
 .page{
   padding-top:55px;
   animation:pageIn .35s ease;
 }
 
-.hidden{display:none!important}
+.hidden{
+  display:none!important;
+}
 
 @keyframes pageIn{
-  from{opacity:0;transform:translateY(12px)}
-  to{opacity:1;transform:translateY(0)}
+  from{
+    opacity:0;
+    transform:translateY(12px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 .label{
@@ -117,18 +150,18 @@ h1{
   margin-bottom:21px;
 }
 
-.gradient{
-  background:linear-gradient(90deg,var(--purple),var(--pink));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-
 h2{
   font-size:35px;
   line-height:1.05;
   letter-spacing:-1.8px;
   margin-bottom:25px;
+}
+
+.gradient{
+  background:linear-gradient(90deg,var(--purple),var(--pink));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 
 .subtitle{
@@ -137,6 +170,8 @@ h2{
   line-height:1.6;
   margin-bottom:30px;
 }
+
+/* ================= OWNER ================= */
 
 .owner{
   display:inline-flex;
@@ -152,7 +187,9 @@ h2{
   box-shadow:0 5px 18px rgba(30,35,55,.04);
 }
 
-.owner strong{color:var(--purple)}
+.owner strong{
+  color:var(--purple);
+}
 
 .line{
   width:90px;
@@ -162,9 +199,10 @@ h2{
   margin-bottom:30px;
 }
 
-/* BUTTON CARDS */
+/* ================= HOME OPTIONS ================= */
 
-.options,.list{
+.options,
+.list{
   display:grid;
   gap:14px;
 }
@@ -172,7 +210,7 @@ h2{
 .option{
   width:100%;
   border:1px solid var(--line);
-  background:rgba(255,255,255,.95);
+  background:rgba(255,255,255,.96);
   border-radius:22px;
   padding:18px;
   display:flex;
@@ -180,6 +218,7 @@ h2{
   text-align:left;
   box-shadow:0 7px 22px rgba(30,35,55,.04);
   transition:.2s;
+  -webkit-tap-highlight-color:transparent;
 }
 
 .option:hover{
@@ -188,7 +227,7 @@ h2{
   border-color:#d8d4ff;
 }
 
-.option:active,.card:active,.chapter:active,.resource:active{
+.option:active{
   transform:scale(.975);
 }
 
@@ -204,11 +243,22 @@ h2{
   flex-shrink:0;
 }
 
-.purple-bg{background:#efedff}
-.blue-bg{background:#e9f2ff}
-.orange-bg{background:#fff3dc}
+.purple-bg{
+  background:#efedff;
+}
 
-.option strong{font-size:16px}
+.blue-bg{
+  background:#e9f2ff;
+}
+
+.orange-bg{
+  background:#fff3dc;
+}
+
+.option strong{
+  font-size:16px;
+}
+
 .option small{
   display:block;
   color:var(--muted);
@@ -221,7 +271,7 @@ h2{
   font-size:23px;
 }
 
-/* BACK */
+/* ================= BACK ================= */
 
 .back{
   border:1px solid var(--line);
@@ -231,6 +281,7 @@ h2{
   border-radius:12px;
   margin-bottom:23px;
   transition:.18s;
+  -webkit-tap-highlight-color:transparent;
 }
 
 .back:hover{
@@ -238,7 +289,7 @@ h2{
   transform:translateX(-3px);
 }
 
-/* GRID */
+/* ================= GRID ================= */
 
 .grid{
   display:grid;
@@ -255,12 +306,17 @@ h2{
   text-align:left;
   box-shadow:0 7px 22px rgba(30,35,55,.04);
   transition:.2s;
+  -webkit-tap-highlight-color:transparent;
 }
 
 .card:hover{
   transform:translateY(-4px);
   box-shadow:var(--shadow);
   border-color:#d8d4ff;
+}
+
+.card:active{
+  transform:scale(.975);
 }
 
 .card strong{
@@ -274,7 +330,7 @@ h2{
   line-height:1.4;
 }
 
-/* SEARCH */
+/* ================= SEARCH ================= */
 
 .search{
   width:100%;
@@ -291,7 +347,7 @@ h2{
   box-shadow:0 0 0 4px rgba(102,87,245,.08);
 }
 
-/* CHAPTER */
+/* ================= CHAPTER ================= */
 
 .chapter{
   width:100%;
@@ -302,11 +358,16 @@ h2{
   text-align:left;
   transition:.18s;
   box-shadow:0 5px 18px rgba(30,35,55,.035);
+  -webkit-tap-highlight-color:transparent;
 }
 
 .chapter:hover{
   transform:translateX(4px);
   border-color:#d8d4ff;
+}
+
+.chapter:active{
+  transform:scale(.975);
 }
 
 .chapter-number{
@@ -323,7 +384,9 @@ h2{
   margin-right:8px;
 }
 
-.chapter-title{font-weight:700}
+.chapter-title{
+  font-weight:700;
+}
 
 .chapter small{
   display:block;
@@ -331,7 +394,7 @@ h2{
   color:var(--muted);
 }
 
-/* RESOURCE */
+/* ================= RESOURCE ================= */
 
 .resource{
   width:100%;
@@ -342,11 +405,16 @@ h2{
   text-align:left;
   box-shadow:0 6px 20px rgba(30,35,55,.04);
   transition:.2s;
+  -webkit-tap-highlight-color:transparent;
 }
 
 .resource:hover{
   transform:translateY(-3px);
   box-shadow:var(--shadow);
+}
+
+.resource:active{
+  transform:scale(.975);
 }
 
 .resource-icon{
@@ -377,7 +445,7 @@ h2{
   border-left:4px solid var(--purple);
 }
 
-/* NOTICE */
+/* ================= NOTICE ================= */
 
 .notice{
   background:linear-gradient(135deg,#f0efff,#fff);
@@ -398,7 +466,7 @@ h2{
   line-height:1.5;
 }
 
-/* AI */
+/* ================= AI ================= */
 
 .ai-box{
   background:#fff;
@@ -412,6 +480,11 @@ h2{
   color:var(--muted);
   line-height:1.5;
   margin-bottom:15px;
+}
+
+.ai-box label{
+  display:block;
+  margin-bottom:8px;
 }
 
 textarea{
@@ -432,6 +505,15 @@ textarea{
   margin-top:12px;
   font-weight:700;
   box-shadow:0 8px 20px rgba(102,87,245,.22);
+  transition:.2s;
+}
+
+.primary:hover{
+  transform:translateY(-2px);
+}
+
+.primary:active{
+  transform:scale(.97);
 }
 
 .result{
@@ -443,7 +525,7 @@ textarea{
   line-height:1.55;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
   text-align:center;
@@ -460,19 +542,39 @@ footer{
   font-weight:800;
 }
 
-.footer-owner span{color:var(--purple)}
+.footer-owner span{
+  color:var(--purple);
+}
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:520px){
-  .app{width:90%}
-  .grid{gap:11px}
-  .card{padding:17px 14px;min-height:105px}
-  h1{letter-spacing:-3px}
-  h2{font-size:30px}
+
+  .app{
+    width:90%;
+  }
+
+  .grid{
+    gap:11px;
+  }
+
+  .card{
+    padding:17px 14px;
+    min-height:105px;
+  }
+
+  h1{
+    letter-spacing:-3px;
+  }
+
+  h2{
+    font-size:30px;
+  }
+
 }
 
 </style>
+
 </head>
 
 <body>
@@ -480,17 +582,30 @@ footer{
 <div class="app">
 
 <header>
+
   <div class="brand">
-    <div class="brand-logo">P</div>
-    <div>
-      <div class="logo">Padh<span>lo</span></div>
-      <div class="tagline">Study smarter. Learn better.</div>
+
+    <div class="brand-logo">
+      P
     </div>
+
+    <div>
+
+      <div class="logo">
+        Padh<span>lo</span>
+      </div>
+
+      <div class="tagline">
+        Study smarter. Learn better.
+      </div>
+
+    </div>
+
   </div>
+
 </header>
 
-
-<!-- HOME -->
+<!-- ================= HOME ================= -->
 
 <section id="home" class="page">
 
@@ -498,7 +613,9 @@ footer{
     👋 Built & curated by <strong>Harsh Yadav</strong>
   </div>
 
-  <div class="label">WELCOME TO PADHLO</div>
+  <div class="label">
+    WELCOME TO PADHLO
+  </div>
 
   <h1>
     Study without the
@@ -514,74 +631,88 @@ footer{
 
   <div class="options">
 
-    <button class="option" onclick="showPage('school')">
-      <div class="icon purple-bg">📚</div>
+    <button type="button" class="option" id="schoolBtn">
+
+      <div class="icon purple-bg">
+        📚
+      </div>
+
       <div>
         <strong>School Study</strong>
         <small>Class 9 • 10 • 11 • 12</small>
       </div>
-      <div class="arrow">→</div>
+
+      <div class="arrow">
+        →
+      </div>
+
     </button>
 
-    <button class="option" onclick="showPage('entrance')">
-      <div class="icon orange-bg">🎯</div>
+
+    <button type="button" class="option" id="entranceBtn">
+
+      <div class="icon orange-bg">
+        🎯
+      </div>
+
       <div>
         <strong>Entrance Preparation</strong>
         <small>JMI • AMU</small>
       </div>
-      <div class="arrow">→</div>
+
+      <div class="arrow">
+        →
+      </div>
+
     </button>
 
-    <button class="option" onclick="showPage('ai')">
-      <div class="icon blue-bg">🤖</div>
+
+    <button type="button" class="option" id="aiBtn">
+
+      <div class="icon blue-bg">
+        🤖
+      </div>
+
       <div>
         <strong>AI Study Assistant</strong>
         <small>Create a simple study plan</small>
       </div>
-      <div class="arrow">→</div>
-    </button> 
-    <button class="option" onclick="showPage('dailyPlan')">
-      <div class="icon purple-bg">🧠</div>
-      <div>
-        <strong>Aaj Kya Padhu?</strong>
-        <small>Create your today's study mission</small>
-      </div>
-      <div class="arrow">→</div>
-    </button>
 
-  </div>
-
-</section>
-
-
-<!-- SCHOOL -->
+      <div class="arrow">
+        <!-- ================= SCHOOL ================= -->
 
 <section id="school" class="page hidden">
 
-  <button class="back" onclick="showPage('home')">← Back</button>
+  <button type="button" class="back" id="schoolBackBtn">
+    ← Back
+  </button>
 
-  <div class="label">SCHOOL STUDY</div>
+  <div class="label">
+    SCHOOL STUDY
+  </div>
 
-  <h2>Choose your class</h2>
+  <h2>
+    Choose your class
+  </h2>
 
   <div class="grid">
 
-    <button class="card" onclick="openClass(9)">
+    <button type="button" class="card" data-class="9">
       <strong>📘 Class 9</strong>
       <small>Subjects & study material</small>
     </button>
 
-    <button class="card" onclick="openClass(10)">
+    <button type="button" class="card" data-class="10">
       <strong>🔥 Class 10</strong>
       <small>Board preparation</small>
     </button>
 
-    <button class="card" onclick="openClass(11)">
+    <button type="button" class="card" data-class="11">
       <strong>📗 Class 11</strong>
       <small>Subjects & study material</small>
     </button>
 
-    <button class="card" onclick="openClass(12)">
+    <button type="button" class="card" data-class="12">
       <strong>🎓 Class 12</strong>
       <small>Board preparation</small>
     </button>
@@ -591,21 +722,28 @@ footer{
 </section>
 
 
-<!-- SUBJECTS -->
+<!-- ================= SUBJECTS ================= -->
 
 <section id="subjects" class="page hidden">
 
-  <button class="back" onclick="showPage('school')">← Back</button>
+  <button type="button" class="back" id="subjectsBackBtn">
+    ← Back
+  </button>
 
-  <div class="label" id="classLabel">CLASS</div>
+  <div class="label" id="classLabel">
+    CLASS
+  </div>
 
-  <h2>Choose your subject</h2>
+  <h2>
+    Choose your subject
+  </h2>
 
   <input
     id="subjectSearch"
     class="search"
     type="search"
     placeholder="🔎 Search subject..."
+    autocomplete="off"
   >
 
   <div id="subjectsList" class="grid"></div>
@@ -613,21 +751,28 @@ footer{
 </section>
 
 
-<!-- CHAPTERS -->
+<!-- ================= CHAPTERS ================= -->
 
 <section id="chapters" class="page hidden">
 
-  <button class="back" onclick="showPage('subjects')">← Back</button>
+  <button type="button" class="back" id="chaptersBackBtn">
+    ← Back
+  </button>
 
-  <div class="label" id="subjectLabel">SUBJECT</div>
+  <div class="label" id="subjectLabel">
+    SUBJECT
+  </div>
 
-  <h2>Choose a chapter</h2>
+  <h2>
+    Choose a chapter
+  </h2>
 
   <input
     id="chapterSearch"
     class="search"
     type="search"
     placeholder="🔎 Search chapter..."
+    autocomplete="off"
   >
 
   <div id="chaptersList" class="list"></div>
@@ -635,65 +780,126 @@ footer{
 </section>
 
 
-<!-- RESOURCES -->
+<!-- ================= RESOURCES ================= -->
 
 <section id="resources" class="page hidden">
 
-  <button class="back" onclick="showPage('chapters')">← Back</button>
+  <button type="button" class="back" id="resourcesBackBtn">
+    ← Back
+  </button>
 
-  <div class="label">STUDY MATERIAL</div>
+  <div class="label">
+    STUDY MATERIAL
+  </div>
 
-  <h2 id="chapterTitle">Chapter</h2>
+  <h2 id="chapterTitle">
+    Chapter
+  </h2>
 
   <div class="notice">
-    <strong>🎯 Pick the resource you need</strong>
+
+    <strong>
+      🎯 Pick the resource you need
+    </strong>
+
     <p>
-      Lectures are teacher-specific. Notes, practice and PYQ
-      searches are kept separate so everything stays organised.
+      Choose lectures, revision, notes, practice or
+      previous-year questions for this chapter.
     </p>
+
   </div>
 
   <div id="teacherBox" class="list"></div>
 
   <div class="list" style="margin-top:15px">
 
-    <button id="revisionBtn" class="resource">
-      <div class="resource-icon">⚡</div>
-      <strong>One-Shot & Revision</strong>
-      <p>Quick revision lectures for this chapter.</p>
+    <button type="button" id="revisionBtn" class="resource">
+
+      <div class="resource-icon">
+        ⚡
+      </div>
+
+      <strong>
+        One-Shot & Revision
+      </strong>
+
+      <p>
+        Quick revision lectures for this chapter.
+      </p>
+
     </button>
 
-    <button id="notesBtn" class="resource">
-      <div class="resource-icon">✍️</div>
-      <strong>Teacher Notes</strong>
-      <p>Find teacher notes and handwritten-style study material.</p>
+
+    <button type="button" id="notesBtn" class="resource">
+
+      <div class="resource-icon">
+        ✍️
+      </div>
+
+      <strong>
+        Teacher Notes
+      </strong>
+
+      <p>
+        Find teacher notes and handwritten-style study material.
+      </p>
+
     </button>
 
-    <button id="practiceBtn" class="resource">
-      <div class="resource-icon">📝</div>
-      <strong>Practice Papers</strong>
-      <p>Chapter-wise practice questions and papers.</p>
+
+    <button type="button" id="practiceBtn" class="resource">
+
+      <div class="resource-icon">
+        📝
+      </div>
+
+      <strong>
+        Practice Papers
+      </strong>
+
+      <p>
+        Chapter-wise practice questions and papers.
+      </p>
+
     </button>
 
-    <button id="pyqBtn" class="resource">
-      <div class="resource-icon">📚</div>
-      <strong>Previous Year Questions</strong>
-      <p>PYQs and exam-style question practice.</p>
+
+    <button type="button" id="pyqBtn" class="resource">
+
+      <div class="resource-icon">
+        📚
+      </div>
+
+      <strong>
+        Previous Year Questions
+      </strong>
+
+      <p>
+        PYQs and exam-style question practice.
+      </p>
+
     </button>
 
   </div>
 
 </section>
 
-<!-- DAILY STUDY PLAN -->
+
+<!-- ================= DAILY PLAN ================= -->
 
 <section id="dailyPlan" class="page hidden">
 
-  <button class="back" onclick="showPage('home')">← Back</button>
+  <button type="button" class="back" id="dailyBackBtn">
+    ← Back
+  </button>
 
-  <div class="label">TODAY'S MISSION</div>
+  <div class="label">
+    TODAY'S MISSION
+  </div>
 
-  <h2>Aaj kya padhu? 🧠</h2>
+  <h2>
+    Aaj kya padhu? 🧠
+  </h2>
 
   <p class="subtitle">
     Apni study details batao aur Padhlo tumhare liye
@@ -702,166 +908,151 @@ footer{
 
   <div class="ai-box">
 
-    <label><strong>🎓 Your Class</strong></label>
+    <label>
+      <strong>🎓 Your Class</strong>
+    </label>
 
     <select id="planClass" class="search">
-      <option value="">Choose class</option>
-      <option value="9">Class 9</option>
-      <option value="10">Class 10</option>
-      <option value="11">Class 11</option>
-      <option value="12">Class 12</option>
+
+      <option value="">
+        Choose class
+      </option>
+
+      <option value="9">
+        Class 9
+      </option>
+
+      <option value="10">
+        Class 10
+      </option>
+
+      <option value="11">
+        Class 11
+      </option>
+
+      <option value="12">
+        Class 12
+      </option>
+
     </select>
 
 
-    <label><strong>⏱️ Available Time</strong></label>
+    <label>
+      <strong>⏱️ Available Time</strong>
+    </label>
 
     <select id="planTime" class="search">
-      <option value="">Choose time</option>
-      <option value="1">1 hour</option>
-      <option value="2">2 hours</option>
-      <option value="3">3 hours</option>
-      <option value="4">4+ hours</option>
+
+      <option value="">
+        Choose time
+      </option>
+
+      <option value="1">
+        1 hour
+      </option>
+
+      <option value="2">
+        2 hours
+      </option>
+
+      <option value="3">
+        3 hours
+      </option>
+
+      <option value="4">
+        4+ hours
+      </option>
+
     </select>
 
 
-    <label><strong>📚 What do you want to focus on?</strong></label>
+    <label>
+      <strong>📚 What do you want to focus on?</strong>
+    </label>
 
     <select id="planSubject" class="search">
-      <option value="">Choose subject</option>
-      <option>Mathematics</option>
-      <option>Science</option>
-      <option>Social Science</option>
-      <option>English</option>
-      <option>Hindi</option>
+
+      <option value="">
+        Choose subject
+      </option>
+
+      <option>
+        Mathematics
+      </option>
+
+      <option>
+        Science
+      </option>
+
+      <option>
+        Social Science
+      </option>
+
+      <option>
+        English
+      </option>
+
+      <option>
+        Hindi
+      </option>
+
     </select>
 
 
-    <label><strong>🎯 What's your goal today?</strong></label>
+    <label>
+      <strong>🎯 What's your goal today?</strong>
+    </label>
 
     <select id="planGoal" class="search">
-      <option value="">Choose goal</option>
-      <option value="new">Learn a new chapter</option>
-      <option value="revision">Revise</option>
-      <option value="practice">Practice questions</option>
-      <option value="pyq">Solve PYQs</option>
+
+      <option value="">
+        Choose goal
+      </option>
+
+      <option value="new">
+        Learn a new chapter
+      </option>
+
+      <option value="revision">
+        Revise
+      </option>
+
+      <option value="practice">
+        Practice questions
+      </option>
+
+      <option value="pyq">
+        Solve PYQs
+      </option>
+
     </select>
 
 
-    <button class="primary" onclick="generateDailyPlan()">
+    <button type="button" class="primary" id="dailyMissionBtn">
       Build My Mission ✨
     </button>
 
   </div>
 
-
   <div id="dailyResult" class="result hidden"></div>
 
 </section>
-<!-- ENTRANCE -->
+
+
+<!-- ================= ENTRANCE ================= -->
 
 <section id="entrance" class="page hidden">
 
-  <button class="back" onclick="showPage('home')">← Back</button>
-
-  <div class="label">ENTRANCE PREPARATION</div>
-
-  <h2>Choose your exam</h2>
-
-  <div class="grid">
-
-    <button class="card" onclick="openExam('JMI')">
-      <strong>🎯 JMI</strong>
-      <small>Entrance preparation</small>
-    </button>
-
-    <button class="card" onclick="openExam('AMU')">
-      <strong>🎓 AMU</strong>
-      <small>Entrance preparation</small>
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- EXAM -->
-
-<section id="exam" class="page hidden">
-
-  <button class="back" onclick="showPage('entrance')">← Back</button>
-
-  <div class="label">ENTRANCE</div>
-
-  <h2 id="examTitle">Preparation</h2>
-
-  <div class="list">
-
-    <button id="examLectureBtn" class="resource">
-      <div class="resource-icon">🎥</div>
-      <strong>Preparation Lectures</strong>
-      <p>Find relevant preparation videos.</p>
-    </button>
-
-    <button id="examMaterialBtn" class="resource">
-      <div class="resource-icon">📒</div>
-      <strong>Study Material</strong>
-      <p>Notes and preparation resources.</p>
-    </button>
-
-    <button id="examPyqBtn" class="resource">
-      <div class="resource-icon">📚</div>
-      <strong>Previous Year Questions</strong>
-      <p>Previous-year question practice.</p>
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- AI -->
-
-<section id="ai" class="page hidden">
-
-  <button class="back" onclick="showPage('home')">← Back</button>
-
-  <div class="label">AI STUDY ASSISTANT</div>
-
-  <h2>Make your study plan.</h2>
-
-  <div class="ai-box">
-
-    <p>
-      Tell Padhlo your class, subjects and available time.
-      It will give you a simple starting routine.
-    </p>
-
-    <textarea
-      id="aiText"
-      placeholder="Example: Class 10, Maths + Science, 3 h <button class="primary" onclick="createPlan()">
-      Create My Plan ✨
-    </button>
-
-    <div id="aiResult" class="result hidden"></div>
-
-  </div>
-
-</section>
-
-
-<footer>
-  Made for focused studying.
-  <span class="footer-owner">
-    Padhlo by <span>Harsh Yadav</span>
-  </span>
-</footer>
-
-</div>
-
-
-<script>
+  <button type="button" class="back" id="entranceBack
+    <script>
 
 "use strict";
+
+/* =====================================================
+   PADHLO — MAIN JAVASCRIPT
+   Navigation + Classes + Subjects + Chapters
+   ===================================================== */
+
 
 /* ================= STATE ================= */
 
@@ -869,6 +1060,27 @@ let currentClass = "";
 let currentSubject = "";
 let currentChapter = "";
 let currentExam = "";
+
+
+/* ================= SAFE ELEMENT ================= */
+
+function $(id){
+  return document.getElementById(id);
+}
+
+
+/* ================= ESCAPE HTML ================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
 
 
 /* ================= NAVIGATION ================= */
@@ -881,10 +1093,12 @@ function showPage(id){
     page.classList.add("hidden");
   });
 
-  const target = document.getElementById(id);
+  const target = $(id);
 
   if(!target){
-    console.error("Page not found:", id);
+
+    console.error("Padhlo: page not found:",id);
+
     return;
   }
 
@@ -894,43 +1108,11 @@ function showPage(id){
     top:0,
     behavior:"smooth"
   });
-}
-
-
-/* ================= ESCAPE HTML ================= */
-
-function escapeHTML(text){
-
-  return String(text)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
 
 }
 
 
-/* ================= ICONS ================= */
-
-function getSubjectIcon(subject){
-
-  const icons = {
-    "Mathematics":"📐",
-    "Science":"🔬",
-    "Social Science":"🌍",
-    "English":"📖",
-    "Hindi":"📝",
-    "Physics":"⚡",
-    "Chemistry":"🧪",
-    "Biology":"🧬"
-  };
-
-  return icons[subject] || "📚";
-}
-
-
-/* ================= SUBJECTS ================= */
+/* ================= SUBJECT DATA ================= */
 
 const subjectsByClass = {
 
@@ -969,11 +1151,12 @@ const subjectsByClass = {
 };
 
 
-/* ================= CHAPTERS ================= */
+/* ================= CHAPTER DATA ================= */
 
 const chaptersBySubject = {
 
   Mathematics:[
+
     "Real Numbers",
     "Polynomials",
     "Pair of Linear Equations in Two Variables",
@@ -988,9 +1171,12 @@ const chaptersBySubject = {
     "Surface Areas and Volumes",
     "Statistics",
     "Probability"
+
   ],
 
+
   Science:[
+
     "Chemical Reactions and Equations",
     "Acids, Bases and Salts",
     "Metals and Non-metals",
@@ -1004,9 +1190,12 @@ const chaptersBySubject = {
     "Electricity",
     "Magnetic Effects of Electric Current",
     "Our Environment"
+
   ],
 
+
   "Social Science":[
+
     "The Rise of Nationalism in Europe",
     "Nationalism in India",
     "The Making of a Global World",
@@ -1027,23 +1216,32 @@ const chaptersBySubject = {
     "Money and Credit",
     "Globalisation and the Indian Economy",
     "Consumer Rights"
+
   ],
 
+
   English:[
+
     "Reading Skills",
     "Writing Skills",
     "Grammar",
     "Literature"
+
   ],
 
+
   Hindi:[
+
     "गद्य",
     "पद्य",
     "व्याकरण",
     "लेखन"
+
   ],
 
+
   Physics:[
+
     "Units and Measurements",
     "Motion",
     "Laws of Motion",
@@ -1057,9 +1255,12 @@ const chaptersBySubject = {
     "Magnetism",
     "Electromagnetic Induction",
     "Optics"
+
   ],
 
+
   Chemistry:[
+
     "Some Basic Concepts of Chemistry",
     "Structure of Atom",
     "Classification of Elements",
@@ -1069,9 +1270,12 @@ const chaptersBySubject = {
     "Redox Reactions",
     "Organic Chemistry",
     "Hydrocarbons"
+
   ],
 
+
   Biology:[
+
     "The Living World",
     "Biological Classification",
     "Plant Kingdom",
@@ -1082,30 +1286,47 @@ const chaptersBySubject = {
     "Genetics",
     "Evolution",
     "Ecology"
+
   ]
 
 };
 
 
-/* ================= CLASS ================= */
+/* ================= SUBJECT ICONS ================= */
+
+function getSubjectIcon(subject){
+
+  const icons = {
+
+    "Mathematics":"📐",
+    "Science":"🔬",
+    "Social Science":"🌍",
+    "English":"📖",
+    "Hindi":"📝",
+    "Physics":"⚡",
+    "Chemistry":"🧪",
+    "Biology":"🧬"
+
+  };
+
+  return icons[subject] || "📚";
+
+}
+
+
+/* ================= OPEN CLASS ================= */
 
 function openClass(number){
 
   currentClass = String(number);
 
-  const classLabel =
-    document.getElementById("classLabel");
-
-  const subjectSearch =
-    document.getElementById("subjectSearch");
-
-  if(classLabel){
-    classLabel.textContent =
+  if($("classLabel")){
+    $("classLabel").textContent =
       "CLASS " + number;
   }
 
-  if(subjectSearch){
-    subjectSearch.value = "";
+  if($("subjectSearch")){
+    $("subjectSearch").value = "";
   }
 
   renderSubjects(
@@ -1113,18 +1334,17 @@ function openClass(number){
   );
 
   showPage("subjects");
+
 }
 
 
-/* ================= SUBJECT RENDER ================= */
+/* ================= RENDER SUBJECTS ================= */
 
 function renderSubjects(list){
 
-  const box =
-    document.getElementById("subjectsList");
+  const box = $("subjectsList");
 
   if(!box){
-    console.error("subjectsList not found");
     return;
   }
 
@@ -1141,13 +1361,14 @@ function renderSubjects(list){
     return;
   }
 
+
   list.forEach(function(subject){
 
     const button =
       document.createElement("button");
 
-    button.className = "card";
     button.type = "button";
+    button.className = "card";
 
     button.innerHTML =
       "<strong>" +
@@ -1157,9 +1378,14 @@ function renderSubjects(list){
       "</strong>" +
       "<small>Open chapters →</small>";
 
-    button.addEventListener("click",function(){
-      openSubject(subject);
-    });
+
+    button.addEventListener(
+      "click",
+      function(){
+        openSubject(subject);
+      }
+    );
+
 
     box.appendChild(button);
 
@@ -1168,56 +1394,19 @@ function renderSubjects(list){
 }
 
 
-/* ================= SUBJECT SEARCH ================= */
-
-const subjectSearch =
-  document.getElementById("subjectSearch");
-
-if(subjectSearch){
-
-  subjectSearch.addEventListener("input",function(){
-
-    const query =
-      this.value.toLowerCase().trim();
-
-    const subjects =
-      subjectsByClass[currentClass] || [];
-
-    const filtered =
-      subjects.filter(function(subject){
-
-        return subject
-          .toLowerCase()
-          .includes(query);
-
-      });
-
-    renderSubjects(filtered);
-
-  });
-
-}
-
-
-/* ================= SUBJECT ================= */
+/* ================= OPEN SUBJECT ================= */
 
 function openSubject(subject){
 
   currentSubject = subject;
 
-  const subjectLabel =
-    document.getElementById("subjectLabel");
-
-  const chapterSearch =
-    document.getElementById("chapterSearch");
-
-  if(subjectLabel){
-    subjectLabel.textContent =
+  if($("subjectLabel")){
+    $("subjectLabel").textContent =
       subject.toUpperCase();
   }
 
-  if(chapterSearch){
-    chapterSearch.value = "";
+  if($("chapterSearch")){
+    $("chapterSearch").value = "";
   }
 
   renderChapters(
@@ -1225,18 +1414,17 @@ function openSubject(subject){
   );
 
   showPage("chapters");
+
 }
 
 
-/* ================= CHAPTER RENDER ================= */
+/* ================= RENDER CHAPTERS ================= */
 
 function renderChapters(list){
 
-  const box =
-    document.getElementById("chaptersList");
+  const box = $("chaptersList");
 
   if(!box){
-    console.error("chaptersList not found");
     return;
   }
 
@@ -1253,30 +1441,242 @@ function renderChapters(list){
     return;
   }
 
+
   list.forEach(function(chapter,index){
 
     const button =
       document.createElement("button");
 
-    button.className = "chapter";
     button.type = "button";
+    button.className = "chapter";
+
 
     button.innerHTML =
       "<span class='chapter-number'>" +
       (index + 1) +
       "</span>" +
+
       "<span class='chapter-title'>" +
       escapeHTML(chapter) +
       "</span>" +
+
       "<small>Open study material →</small>";
 
-    button.addEventListener("click",function(){
-      openChapter(chapter);
-    });
+
+    button.addEventListener(
+      "click",
+      function(){
+        openChapter(chapter);
+      }
+    );
+
 
     box.appendChild(button);
 
   });
+
+}
+
+
+/* ================= OPEN CHAPTER ================= */
+
+function openChapter(chapter){
+
+  currentChapter = chapter;
+
+  if($("chapterTitle")){
+    $("chapterTitle").textContent =
+      chapter;
+  }
+
+  renderTeacherResources();
+
+  setupResourceButtons();
+
+  showPage("resources");
+
+}
+
+
+/* ================= TEACHER RESOURCES ================= */
+
+function renderTeacherResources(){
+
+  const box = $("teacherBox");
+
+  if(!box){
+    return;
+  }
+
+  box.innerHTML = "";
+
+
+  const teachers = [
+
+    {
+      name:"Prashant Kirad",
+      icon:"🎥",
+      text:"Concept explanation and revision lectures"
+    },
+
+    {
+      name:"Magnet Brains",
+      icon:"🎓",
+      text:"Detailed chapter-wise learning"
+    },
+
+    {
+      name:"DigiRaj Singh Rajpoot",
+      icon:"🌍",
+      text:"Useful Social Science learning resources"
+    },
+
+    {
+      name:"Shobhit Nirwan",
+      icon:"📐",
+      text:"Maths concepts, revision and exam preparation"
+    },
+
+    {
+      name:"Ritik Mishra",
+      icon:"⭐",
+      text:"Additional chapter learning resources"
+    }
+
+  ];
+
+
+  teachers.forEach(function(teacher){
+
+    const button =
+      document.createElement("button");
+
+    button.type = "button";
+    button.className =
+      "resource teacher";
+
+
+    button.innerHTML =
+
+      "<div class='resource-icon'>" +
+      teacher.icon +
+      "</div>" +
+
+      "<strong>" +
+      escapeHTML(teacher.name) +
+      "</strong>" +
+
+      "<p>" +
+      escapeHTML(teacher.text) +
+      "</p>";
+
+
+    button.addEventListener(
+      "click",
+      function(){
+
+        openYouTubeSearch(
+          teacher.name + " " +
+          currentSubject + " " +
+          currentChapter
+        );
+
+      }
+    );
+
+
+    box.appendChild(button);
+
+  });
+
+}
+
+
+/* ================= YOUTUBE SEARCH ================= */
+
+function openYouTubeSearch(query){
+
+  const url =
+    "https://www.youtube.com/results?search_query=" +
+    encodeURIComponent(query);
+
+  window.open(
+    url,
+    "_blank",
+    "noopener,noreferrer"
+  );
+
+}
+
+
+/* ================= RESOURCE BUTTONS ================= */
+
+function setupResourceButtons(){
+
+  if($("revisionBtn")){
+
+    $("revisionBtn").onclick
+    
+= function(){
+
+      openYouTubeSearch(
+        currentSubject +
+        " " +
+        currentChapter +
+        " one shot revision"
+      );
+
+    };
+
+  }
+
+
+  if($("notesBtn")){
+
+    $("notesBtn").onclick = function(){
+
+      openYouTubeSearch(
+        currentSubject +
+        " " +
+        currentChapter +
+        " handwritten notes"
+      );
+
+    };
+
+  }
+
+
+  if($("practiceBtn")){
+
+    $("practiceBtn").onclick = function(){
+
+      openYouTubeSearch(
+        currentSubject +
+        " " +
+        currentChapter +
+        " practice questions"
+      );
+
+    };
+
+  }
+
+
+  if($("pyqBtn")){
+
+    $("pyqBtn").onclick = function(){
+
+      openYouTubeSearch(
+        currentSubject +
+        " " +
+        currentChapter +
+        " PYQ"
+      );
+
+    };
+
+  }
 
 }
 
@@ -1288,7 +1688,7 @@ const chapterSearch =
 
 if(chapterSearch){
 
-  chapterSearch.addEventListener("input",function(){
+  chapterSearch.addEventListener("input", function(){
 
     const query =
       this.value.toLowerCase().trim();
@@ -1312,195 +1712,6 @@ if(chapterSearch){
 }
 
 
-/* ================= CHAPTER ================= */
-
-function openChapter(chapter){
-
-  currentChapter = chapter;
-
-  const title =
-    document.getElementById("chapterTitle");
-
-  if(title){
-    title.textContent = chapter;
-  }
-
-  renderTeacherResources();
-
-  setupResourceButtons();
-
-  showPage("resources");
-
-}
-/* ================= TEACHERS ================= */
-
-function renderTeacherResources(){
-
-  const box = document.getElementById("teacherBox");
-
-  if(!box){
-    console.error("teacherBox not found");
-    return;
-  }
-
-  box.innerHTML = "";
-
-  const teachers = [
-    {
-      name: "Prashant Kirad",
-      icon: "🎥",
-      text: "Concept explanation & revision lectures"
-    },
-    {
-      name: "Magnet Brains",
-      icon: "🎓",
-      text: "Detailed chapter-wise lectures"
-    },
-    {
-      name: "DigiRaj Singh Rajpoot",
-      icon: "🌍",
-      text: "Social Science lectures"
-    },
-    {
-      name: "Shobhit Nirwan",
-      icon: "📐",
-      text: "Maths lectures & revision"
-    },
-    {
-      name: "Ritik Mishra",
-      icon: "📚",
-      text: "Additional study lectures"
-    }
-  ];
-
-  teachers.forEach(function(teacher){
-
-    const button = document.createElement("button");
-
-    button.className = "resource teacher";
-    button.type = "button";
-
-    button.innerHTML =
-      "<div class='resource-icon'>" +
-      teacher.icon +
-      "</div>" +
-      "<strong>" +
-      escapeHTML(teacher.name) +
-      "</strong>" +
-      "<p>" +
-      escapeHTML(teacher.text) +
-      "</p>";
-
-    button.addEventListener("click",function(){
-
-      openYouTubeSearch(
-        currentChapter + " " + teacher.name
-      );
-
-    });
-
-    box.appendChild(button);
-
-  });
-
-}
-
-
-/* ================= RESOURCE BUTTONS ================= */
-
-function setupResourceButtons(){
-
-  const revisionBtn =
-    document.getElementById("revisionBtn");
-
-  const notesBtn =
-    document.getElementById("notesBtn");
-
-  const practiceBtn =
-    document.getElementById("practiceBtn");
-
-  const pyqBtn =
-    document.getElementById("pyqBtn");
-
-
-  if(revisionBtn){
-
-    revisionBtn.onclick = function(){
-
-      openYouTubeSearch(
-        currentChapter + " one shot revision"
-      );
-
-    };
-
-  }
-
-
-  if(notesBtn){
-
-    notesBtn.onclick = function(){
-
-      openGoogleSearch(
-        currentChapter + " handwritten notes"
-      );
-
-    };
-
-  }
-
-
-  if(practiceBtn){
-
-    practiceBtn.onclick = function(){
-
-      openGoogleSearch(
-        currentChapter + " practice questions"
-      );
-
-    };
-
-  }
-
-
-  if(pyqBtn){
-
-    pyqBtn.onclick = function(){
-
-      openGoogleSearch(
-        currentChapter + " previous year questions"
-      );
-
-    };
-
-  }
-
-}
-
-
-/* ================= SEARCH HELPERS ================= */
-
-function openYouTubeSearch(query){
-
-  window.open(
-    "https://www.youtube.com/results?search_query=" +
-    encodeURIComponent(query),
-    "_blank"
-  );
-
-}
-
-
-function openGoogleSearch(query){
-
-  window.open(
-    "https://www.google.com/search?q=" +
-    encodeURIComponent(query),
-    "_blank"
-  );
-
-}
-
-
 /* ================= EXAM ================= */
 
 function openExam(exam){
@@ -1511,8 +1722,10 @@ function openExam(exam){
     document.getElementById("examTitle");
 
   if(title){
+
     title.textContent =
       exam + " Preparation";
+
   }
 
   setupExamButtons();
@@ -1522,24 +1735,17 @@ function openExam(exam){
 }
 
 
+/* ================= EXAM BUTTONS ================= */
+
 function setupExamButtons(){
 
-  const lecture =
-    document.getElementById("examLectureBtn");
+  if($("examLectureBtn")){
 
-  const material =
-    document.getElementById("examMaterialBtn");
-
-  const pyq =
-    document.getElementById("examPyqBtn");
-
-
-  if(lecture){
-
-    lecture.onclick = function(){
+    $("examLectureBtn").onclick = function(){
 
       openYouTubeSearch(
-        currentExam + " entrance preparation"
+        currentExam +
+        " entrance preparation lectures"
       );
 
     };
@@ -1547,12 +1753,13 @@ function setupExamButtons(){
   }
 
 
-  if(material){
+  if($("examMaterialBtn")){
 
-    material.onclick = function(){
+    $("examMaterialBtn").onclick = function(){
 
-      openGoogleSearch(
-        currentExam + " entrance study material"
+      openYouTubeSearch(
+        currentExam +
+        " entrance preparation study material"
       );
 
     };
@@ -1560,59 +1767,18 @@ function setupExamButtons(){
   }
 
 
-  if(pyq){
+  if($("examPyqBtn")){
 
-    pyq.onclick = function(){
+    $("examPyqBtn").onclick = function(){
 
-      openGoogleSearch(
-        currentExam + " previous year questions"
+      openYouTubeSearch(
+        currentExam +
+        " entrance previous year questions PYQ"
       );
 
     };
 
   }
-
-}
-
-
-/* ================= AI ================= */
-
-function createPlan(){
-
-  const input =
-    document.getElementById("aiText");
-
-  const result =
-    document.getElementById("aiResult");
-
-  if(!input || !result){
-    return;
-  }
-
-  const text =
-    input.value.trim();
-
-  if(!text){
-
-    result.classList.remove("hidden");
-
-    result.innerHTML =
-      "<strong>⚠️ Thoda detail batao.</strong><br>" +
-      "Example: Class 10, Maths + Science, 3 hours daily.";
-
-    return;
-
-  }
-
-  result.classList.remove("hidden");
-
-  result.innerHTML =
-    "<strong>✨ Your Study Plan</strong><br><br>" +
-    "📚 45 min — Main subject<br>" +
-    "✍️ 30 min — Notes / revision<br>" +
-    "📝 30 min — Practice<br>" +
-    "🔁 15 min — Quick recap<br><br>" +
-    "🔥 Focus on one task at a time.";
 
 }
 
@@ -1622,78 +1788,97 @@ function createPlan(){
 function generateDailyPlan(){
 
   const classValue =
-    document.getElementById("planClass").value;
+    $("planClass")?.value || "";
 
   const timeValue =
-    document.getElementById("planTime").value;
+    $("planTime")?.value || "";
 
-  const subject =
-    document.getElementById("planSubject").value;
+  const subjectValue =
+    $("planSubject")?.value || "";
 
-  const goal =
-    document.getElementById("planGoal").value;
+  const goalValue =
+    $("planGoal")?.value || "";
 
   const result =
-    document.getElementById("dailyResult");
+    $("dailyResult");
+
+  if(!result) return;
 
 
   if(
     !classValue ||
     !timeValue ||
-    !subject ||
-    !goal
+    !subjectValue ||
+    !goalValue
   ){
 
     result.classList.remove("hidden");
 
     result.innerHTML =
       "<strong>⚠️ Almost there!</strong><br>" +
-      "Please choose all four options.";
+      "Please choose all four options first.";
 
     return;
 
   }
 
 
+  let goalText =
+    "Learn a new chapter";
+
+  if(goalValue === "revision"){
+    goalText = "Revise important concepts";
+  }
+
+  if(goalValue === "practice"){
+    goalText = "Practice questions";
+  }
+
+  if(goalValue === "pyq"){
+    goalText = "Solve previous-year questions";
+  }
+
+
   let plan = "";
 
 
-  if(goal === "new"){
+  if(timeValue === "1"){
 
     plan =
-      "🎥 Learn the concept — 40 min<br>" +
-      "✍️ Make short notes — 20 min<br>" +
-      "📝 Practice — 20 min";
+      "⏱️ 25 min — Concept study<br>" +
+      "✍️ 20 min — Notes / examples<br>" +
+      "📝 15 min — Quick practice";
 
   }
 
-
-  else if(goal === "revision"){
+  else if(timeValue === "2"){
 
     plan =
-      "📖 Revise the chapter — 30 min<br>" +
-      "🧠 Active recall — 20 min<br>" +
-      "📝 Questions — 30 min";
+      "⏱️ 45 min — Main concept<br>" +
+      "✍️ 30 min — Notes & examples<br>" +
+      "📝 35 min — Practice<br>" +
+      "🔁 10 min — Revision";
 
   }
 
-
-  else if(goal === "practice"){
+  else if(timeValue === "3"){
 
     plan =
-      "📚 Quick concept review — 20 min<br>" +
-      "📝 Practice questions — 45 min<br>" +
-      "🔍 Check mistakes — 15 min";
+      "⏱️ 60 min — Concept learning<br>" +
+      "✍️ 40 min — Notes<br>" +
+      "📝 60 min — Practice<br>" +
+      "🔁 20 min — Revision";
 
   }
 
-
-  else if(goal === "pyq"){
+  else{
 
     plan =
-      "📖 Quick revision — 20 min<br>" +
-      "📝 Solve PYQs — 45 min<br>" +
-      "🔍 Analyse mistakes — 15 min";
+      "⏱️ 75 min — Concept learning<br>" +
+      "✍️ 45 min — Notes<br>" +
+      "📝 75 min — Practice<br>" +
+      "📚 30 min — PYQs<br>" +
+      "🔁 15 min — Final revision";
 
   }
 
@@ -1701,43 +1886,74 @@ function generateDailyPlan(){
   result.classList.remove("hidden");
 
   result.innerHTML =
-    "<strong>🎯 Class " +
+    "<strong>🎯 Today's Mission — Class " +
     escapeHTML(classValue) +
-    " • " +
-    escapeHTML(subject) +
     "</strong><br><br>" +
-    "<strong>Today's Mission</strong><br><br>" +
-    plan +
-    "<br><br>" +
-    "⏱️ Available time: " +
-    escapeHTML(timeValue) +
-    " hour" +
-    (Number(timeValue) > 1 ? "s" : "") +
-    "<br><br>" +
-    "🔥 Mission complete karne par next topic start karo.";
+
+    "📚 Subject: <strong>" +
+    escapeHTML(subjectValue) +
+    "</strong><br>" +
+
+    "🎯 Goal: <strong>" +
+    escapeHTML(goalText) +
+    "</strong><br><br>" +
+
+    plan;
+
+}
+
+
+/* ================= AI PLAN ================= */
+
+function createPlan(){
+
+  const input = $("aiText");
+  const result = $("aiResult");
+
+  if(!input || !result) return;
+
+  const text =
+    input.value.trim();
+
+  result.classList.remove("hidden");
+
+
+  if(!text){
+
+    result.innerHTML =
+      "<strong>👋 Tell me a little about your study.</strong><br>" +
+      "Example: Class 10, Maths + Science, 3 hours daily.";
+
+    return;
+
+  }
+
+
+  result.innerHTML =
+    "<strong>✨ Your Padhlo starter plan</strong><br><br>" +
+
+    "📌 <strong>Step 1:</strong> Start with one topic and study it without distractions.<br><br>" +
+
+    "✍️ <strong>Step 2:</strong> Make short notes of the important concepts.<br><br>" +
+
+    "📝 <strong>Step 3:</strong> Solve practice questions from the same topic.<br><br>" +
+
+    "🔁 <strong>Step 4:</strong> Finish with a quick revision of what you studied.<br><br>" +
+
+    "💡 Your input: " +
+    escapeHTML(text);
 
 }
 
 
 /* ================= START ================= */
 
-showPage("home");
+document.addEventListener("DOMContentLoaded", function(){
 
+  showPage("home");
+
+});
     </script>
-function openSubject(subject){
 
-  currentSubject = subject;
-
-  document.getElementById("subjectLabel").textContent =
-    subject.toUpperCase();
-
-  document.getElementById("chapterSearch").value = "";
-
-  renderChapters(
-    chaptersBySubject[subject] || []
-  );
-
-  showPage("chapters");
-}
-
-  
+</body>
+  </html>
