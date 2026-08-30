@@ -741,7 +741,119 @@ var chaptersBySubject = {
 
 var currentClass = "";
 var currentSubject = "";
+var mathsMaterials = {
+  "Real Numbers": {
+    lecture: "https://www.magnetbrains.com/course/class-10th-maths-ncert-cbse-updated-course/",
+    revision: "https://www.magnetbrains.com/course/class-10th-maths-ncert-cbse-updated-course/",
+    notes: "https://www.ncert.nic.in/textbook.php",
+    practice: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    pyq: "https://www.cbse.gov.in/cbsenew/question-paper.html"
+  },
 
+  "Polynomials": {
+    lecture: "https://www.magnetbrains.com/course/class-10th-maths-ncert-cbse-updated-course/",
+    revision: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    notes: "https://www.ncert.nic.in/textbook.php",
+    practice: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    pyq: "https://www.cbse.gov.in/cbsenew/question-paper.html"
+  },
+
+  "Pair of Linear Equations": {
+    lecture: "https://www.magnetbrains.com/course/class-10th-maths-ncert-cbse-updated-course/",
+    revision: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    notes: "https://www.ncert.nic.in/textbook.php",
+    practice: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    pyq: "https://www.cbse.gov.in/cbsenew/question-paper.html"
+  },
+
+  "Quadratic Equations": {
+    lecture: "https://www.magnetbrains.com/course/class-10th-maths-ncert-cbse-updated-course/",
+    revision: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    notes: "https://www.ncert.nic.in/textbook.php",
+    practice: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    pyq: "https://www.cbse.gov.in/cbsenew/question-paper.html"
+  },
+
+  "Arithmetic Progressions": {
+    lecture: "https://www.magnetbrains.com/course/class-10th-maths-ncert-cbse-updated-course/",
+    revision: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    notes: "https://www.ncert.nic.in/textbook.php",
+    practice: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    pyq: "https://www.cbse.gov.in/cbsenew/question-paper.html"
+  },
+
+  "Triangles": {
+    lecture: "https://www.magnetbrains.com/course/class-10th-maths-ncert-cbse-updated-course/",
+    revision: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    notes: "https://www.ncert.nic.in/textbook.php",
+    practice: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    pyq: "https://www.cbse.gov.in/cbsenew/question-paper.html"
+  },
+
+  "Coordinate Geometry": {
+    lecture: "https://www.magnetbrains.com/course/class-10th-maths-ncert-cbse-updated-course/",
+    revision: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    notes: "https://www.ncert.nic.in/textbook.php",
+    practice: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    pyq: "https://www.cbse.gov.in/cbsenew/question-paper.html"
+  },
+
+  "Introduction to Trigonometry": {
+    lecture: "https://www.magnetbrains.com/course/class-10th-maths-ncert-cbse-updated-course/",
+    revision: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    notes: "https://www.ncert.nic.in/textbook.php",
+    practice: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    pyq: "https://www.cbse.gov.in/cbsenew/question-paper.html"
+  },
+
+  "Applications of Trigonometry": {
+    lecture: "https://www.magnetbrains.com/course/class-10th-maths-ncert-cbse-updated-course/",
+    revision: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    notes: "https://www.ncert.nic.in/textbook.php",
+    practice: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    pyq: "https://www.cbse.gov.in/cbsenew/question-paper.html"
+  },
+
+  "Circles": {
+    lecture: "https://www.magnetbrains.com/course/class-10th-maths-ncert-cbse-updated-course/",
+    revision: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    notes: "https://www.ncert.nic.in/textbook.php",
+    practice: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    pyq: "https://www.cbse.gov.in/cbsenew/question-paper.html"
+  },
+
+  "Areas Related to Circles": {
+    lecture: "https://www.magnetbrains.com/course/class-10th-maths-ncert-cbse-updated-course/",
+    revision: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    notes: "https://www.ncert.nic.in/textbook.php",
+    practice: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    pyq: "https://www.cbse.gov.in/cbsenew/question-paper.html"
+  },
+
+  "Surface Areas and Volumes": {
+    lecture: "https://www.magnetbrains.com/course/class-10th-maths-ncert-cbse-updated-course/",
+    revision: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    notes: "https://www.ncert.nic.in/textbook.php",
+    practice: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    pyq: "https://www.cbse.gov.in/cbsenew/question-paper.html"
+  },
+
+  "Statistics": {
+    lecture: "https://www.magnetbrains.com/course/class-10th-maths-ncert-cbse-updated-course/",
+    revision: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    notes: "https://www.ncert.nic.in/textbook.php",
+    practice: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    pyq: "https://www.cbse.gov.in/cbsenew/question-paper.html"
+  },
+
+  "Probability": {
+    lecture: "https://www.magnetbrains.com/course/class-10th-maths-ncert-cbse-updated-course/",
+    revision: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    notes: "https://www.ncert.nic.in/textbook.php",
+    practice: "https://www.magnetbrains.com/course/class-10th-maths-ncert-book-full-video-course-2/",
+    pyq: "https://www.cbse.gov.in/cbsenew/question-paper.html"
+  }
+};
 
 /* CLASS SELECTION */
 
@@ -919,11 +1031,39 @@ document
 
 function openChapter(chapter){
 
-  document.getElementById("chapterTitle").textContent =
-    chapter;
+  document.getElementById("chapterTitle").textContent = chapter;
+
+  var material = mathsMaterials[chapter];
+
+  if(!material){
+    showPage("resources");
+    return;
+  }
+
+  var buttons = document.querySelectorAll("#resources .resource");
+
+  buttons[0].onclick = function(){
+    window.open(material.lecture, "_blank");
+  };
+
+  buttons[1].onclick = function(){
+    window.open(material.revision, "_blank");
+  };
+
+  buttons[2].onclick = function(){
+    window.open(material.notes, "_blank");
+  };
+
+  buttons[3].onclick = function(){
+    window.open(material.practice, "_blank");
+  };
+
+  buttons[4].onclick = function(){
+    window.open(material.pyq, "_blank");
+  };
 
   showPage("resources");
-}
+                }
 
 
 /* RESOURCE BUTTONS */
