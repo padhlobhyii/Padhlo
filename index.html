@@ -9,24 +9,44 @@
 <style>
 *{
   box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f6f7fb;
-  color:#171923;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f7f7f8;
+  color:#171717;
+  min-height:100vh;
 }
 
-.container{
-  width:min(92%,700px);
+button,
+input,
+textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.app{
+  width:92%;
+  max-width:760px;
   margin:auto;
-  padding:35px 0;
+  padding:24px 0 50px;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .logo{
-  font-size:28px;
+  font-size:30px;
   font-weight:800;
+  letter-spacing:-1px;
 }
 
 .logo span{
@@ -34,259 +54,322 @@ body{
 }
 
 .tagline{
-  color:#777b88;
-  margin-top:6px;
-  font-size:14px;
+  color:#777;
+  font-size:13px;
+  margin-top:4px;
 }
 
-.hero{
-  margin-top:80px;
+.page{
+  padding-top:60px;
 }
 
-.small-title{
-  font-size:12px;
+.hidden{
+  display:none !important;
+}
+
+.label{
+  color:#888;
+  font-size:11px;
+  font-weight:700;
   letter-spacing:2px;
-  font-weight:bold;
-  color:#777b88;
+  margin-bottom:12px;
 }
 
 h1{
-  font-size:clamp(35px,8vw,55px);
+  font-size:clamp(38px,9vw,58px);
+  line-height:.98;
+  letter-spacing:-3px;
+  margin-bottom:18px;
+}
+
+h2{
+  font-size:32px;
   line-height:1.05;
-  letter-spacing:-2px;
-  margin:12px 0;
+  letter-spacing:-1.5px;
+  margin-bottom:25px;
 }
 
 .subtitle{
-  color:#777b88;
+  color:#777;
+  line-height:1.5;
   margin-bottom:30px;
 }
 
 .options{
   display:grid;
-  gap:15px;
+  gap:14px;
 }
 
 .option{
   width:100%;
-  padding:20px;
-  background:white;
-  border:1px solid #e2e4eb;
-  border-radius:18px;
+  border:1px solid #e1e1e5;
+  background:#fff;
+  border-radius:20px;
+  padding:19px;
   display:flex;
   align-items:center;
-  gap:15px;
   text-align:left;
-  font-size:16px;
-  cursor:pointer;
+  transition:.15s;
 }
 
-.option:hover{
-  transform:translateY(-2px);
+.option:active,
+.card:active,
+.chapter:active,
+.resource:active{
+  transform:scale(.98);
 }
 
 .icon{
-  width:55px;
-  height:55px;
-  background:#f0f1f6;
-  border-radius:15px;
+  width:54px;
+  height:54px;
+  border-radius:16px;
+  background:#f0f0f2;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   font-size:25px;
+  margin-right:15px;
+  flex-shrink:0;
 }
 
 .option strong{
-  display:block;
-  margin-bottom:5px;
+  font-size:16px;
 }
 
 .option small{
-  color:#777b88;
+  display:block;
+  color:#777;
+  margin-top:5px;
 }
 
 .arrow{
   margin-left:auto;
   font-size:22px;
-  color:#777b88;
-}
-
-.hidden{
-  display:none;
+  color:#777;
 }
 
 .back{
   border:0;
-  background:none;
-  font-size:15px;
-  color:#666;
-  cursor:pointer;
+  background:transparent;
+  color:#777;
+  padding:0;
   margin-bottom:25px;
-}
-
-h2{
-  font-size:30px;
 }
 
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:12px;
+  gap:13px;
 }
 
 .card{
-  padding:22px 15px;
-  background:white;
-  border:1px solid #e2e4eb;
-  border-radius:15px;
-  font-weight:bold;
+  border:1px solid #e1e1e5;
+  background:#fff;
+  border-radius:18px;
+  padding:20px 16px;
+  text-align:left;
+  min-height:105px;
+  transition:.15s;
+}
+
+.card strong{
+  display:block;
+  margin-bottom:8px;
+}
+
+.card small{
+  color:#777;
+}
+
+.search{
+  width:100%;
+  border:1px solid #dddde2;
+  background:#fff;
+  border-radius:14px;
+  padding:15px;
+  outline:none;
+  margin-bottom:17px;
+}
+
+.search:focus{
+  border-color:#999;
+}
+
+.list{
+  display:grid;
+  gap:11px;
+}
+
+.chapter,
+.resource{
+  width:100%;
+  border:1px solid #e1e1e5;
+  background:#fff;
+  border-radius:17px;
+  padding:18px;
+  text-align:left;
+  transition:.15s;
+}
+
+.chapter strong{
+  display:block;
+}
+
+.chapter small{
+  display:block;
+  color:#777;
+  margin-top:6px;
+}
+
+.resource{
+  display:block;
+}
+
+.resource-icon{
+  font-size:24px;
+  margin-bottom:9px;
+}
+
+.resource strong{
+  display:block;
   font-size:16px;
+}
+
+.resource p{
+  color:#777;
+  font-size:13px;
+  line-height:1.45;
+  margin-top:6px;
+}
+
+.ai-box{
+  background:#fff;
+  border:1px solid #e1e1e5;
+  border-radius:18px;
+  padding:20px;
+}
+
+.ai-box p{
+  color:#777;
+  line-height:1.5;
+  margin-bottom:15px;
+}
+
+textarea{
+  width:100%;
+  min-height:120px;
+  resize:vertical;
+  border:1px solid #dddde2;
+  border-radius:13px;
+  padding:14px;
+  outline:none;
+}
+
+.primary{
+  border:0;
+  background:#171717;
+  color:#fff;
+  padding:13px 18px;
+  border-radius:12px;
+  margin-top:12px;
+}
+
+.result{
+  background:#f0f0f2;
+  border-radius:13px;
+  padding:16px;
+  margin-top:15px;
+  color:#666;
+  line-height:1.55;
+}
+
+.empty{
+  background:#fff;
+  border:1px solid #e1e1e5;
+  border-radius:16px;
+  padding:20px;
+  color:#777;
 }
 
 footer{
   text-align:center;
   color:#999;
   font-size:12px;
-  margin-top:80px;
+  margin-top:75px;
+}
+
+@media(max-width:500px){
+  .app{
+    width:90%;
+  }
+
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="app">
 
 <header>
-<div class="logo">Padh<span>lo</span></div>
-<div class="tagline">
-Study smarter. Learn better.
-</div>
+  <div>
+    <div class="logo">Padh<span>lo</span></div>
+    <div class="tagline">Study smarter. Learn better.</div>
+  </div>
 </header>
 
-<section id="home" class="hero">
 
-<div class="small-title">WELCOME</div>
+<!-- HOME -->
+<section id="home" class="page">
 
-<h1>
-What do you want to prepare for?
-</h1>
+  <div class="label">WELCOME</div>
 
-<p class="subtitle">
-Choose one. We'll keep everything simple.
-</p>
+  <h1>Study without the confusion.</h1>
 
-<div class="options">
+  <p class="subtitle">
+    Everything important, organised in one simple place.
+  </p>
 
-<button class="option" onclick="showSchool()">
+  <div class="options">
 
-<div class="icon">📚</div>
+    <button class="option" type="button" onclick="showPage('school')">
+      <div class="icon">📚</div>
+      <div>
+        <strong>School Study</strong>
+        <small>Class 9 • 10 • 11 • 12</small>
+      </div>
+      <div class="arrow">→</div>
+    </button>
 
-<div>
-<strong>School Study</strong>
-<small>Class 9 • 10 • 11 • 12</small>
-</div>
+    <button class="option" type="button" onclick="showPage('entrance')">
+      <div class="icon">🎯</div>
+      <div>
+        <strong>Entrance Preparation</strong>
+        <small>JMI • AMU</small>
+      </div>
+      <div class="arrow">→</div>
+    </button>
 
-<div class="arrow">→</div>
+    <button class="option" type="button" onclick="showPage('ai')">
+      <div class="icon">🤖</div>
+      <div>
+        <strong>AI Study Assistant</strong>
+        <small>Plan your study</small>
+      </div>
+      <div class="arrow">→</div>
+    </button>
 
-</button>
-
-
-<button class="option" onclick="showEntrance()">
-
-<div class="icon">🎯</div>
-
-<div>
-<strong>Entrance Preparation</strong>
-<small>JMI • AMU</small>
-</div>
-
-<div class="arrow">→</div>
-
-</button>
-
-</div>
-
-</section>
-
- 
-<section id="school"  class=. "hidden">
-
-<button class="back" onclick="goHome()">← Back</button>
-
-<h2>Choose your class</h2>
-
-<div class="grid">
-
-<button class="card">Class  9</button>
-<button class="card">Class 10</button>
-<button class="card">Class 11</button>
-<button class="card">Class 12</button>
-
-</div>
+  </div>
 
 </section>
 
 
-<section id="entrance" class="hidden">
+<!-- SCHOOL -->
+<section id="school" class="page hidden">
 
-<button class="back" onclick="goHome()">← Back</button>
-
-<h2>Entrance Preparation</h2>
-
-<div class="grid">
-
-<button class="card">🎯 JMI</button>
-<button class="card">🎓 AMU</button>
-
-</div>
-
-</section>
-
-
-<footer>
-Padhlo • Learn better
-</footer>
-
-</div>
-
-
-<script>
-
-function hideAll(){
-
-document.getElementById("home").classList.add("hidden");
-
-document.getElementById("school").classList.add("hidden");
-
-document.getElementById("entrance").classList.add("hidden");
-
-}
-
-function showSchool(){
-
-hideAll();
-
-document.getElementById("school").classList.remove("hidden");
-
-}
-
-function showEntrance(){
-
-hideAll();
-
-document.getElementById("entrance").classList.remove("hidden");
-
-}
-
-function goHome(){
-
-hideAll();
-
-document.getElementById("home").classList.remove("hidden");
-
-}
-
-</script>
-
-</body>
-  </html>
+  <button class="back" type="button" onclick="showPage('home')">
+    ← Back
+  </
