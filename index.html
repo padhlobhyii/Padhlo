@@ -1332,60 +1332,398 @@ function openChapter(chapter){
   showPage("resources");
 
 }
-
-
 /* ================= TEACHERS ================= */
 
 function renderTeacherResources(){
 
-  const box =
-    document.getElementById("teacherBox");
+  const box = document.getElementById("teacherBox");
 
   if(!box){
+    console.error("teacherBox not found");
     return;
   }
 
   box.innerHTML = "";
 
   const teachers = [
-
     {
-      name:"Prashant Kirad",
-      icon:"🎥",
-      text:"Concept explanation and revision lectures"
+      name: "Prashant Kirad",
+      icon: "🎥",
+      text: "Concept explanation & revision lectures"
     },
-
     {
-      name:"Magnet Brains",
-      icon:"🎓",
-      text:"Detailed chapter-wise lectures"
+      name: "Magnet Brains",
+      icon: "🎓",
+      text: "Detailed chapter-wise lectures"
     },
-
     {
-      name:"Best available teacher",
-      icon:"⭐",
-      text:"Additional learning resources"
+      name: "DigiRaj Singh Rajpoot",
+      icon: "🌍",
+      text: "Social Science lectures"
+    },
+    {
+      name: "Shobhit Nirwan",
+      icon: "📐",
+      text: "Maths lectures & revision"
+    },
+    {
+      name: "Ritik Mishra",
+      icon: "📚",
+      text: "Additional study lectures"
     }
-
   ];
-
 
   teachers.forEach(function(teacher){
 
-    const button =
-      document.createElement("button");
+    const button = document.createElement("button");
 
-    button.className =
-      "resource teacher";
-
+    button.className = "resource teacher";
     button.type = "button";
 
     button.innerHTML =
       "<div class='resource-icon'>" +
       teacher.icon +
-      "</div>"
+      "</div>" +
+      "<strong>" +
+      escapeHTML(teacher.name) +
+      "</strong>" +
+      "<p>" +
+      escapeHTML(teacher.text) +
+      "</p>";
 
-/* 
+    button.addEventListener("click",function(){
+
+      openYouTubeSearch(
+        currentChapter + " " + teacher.name
+      );
+
+    });
+
+    box.appendChild(button);
+
+  });
+
+}
+
+
+/* ================= RESOURCE BUTTONS ================= */
+
+function setupResourceButtons(){
+
+  const revisionBtn =
+    document.getElementById("revisionBtn");
+
+  const notesBtn =
+    document.getElementById("notesBtn");
+
+  const practiceBtn =
+    document.getElementById("practiceBtn");
+
+  const pyqBtn =
+    document.getElementById("pyqBtn");
+
+
+  if(revisionBtn){
+
+    revisionBtn.onclick = function(){
+
+      openYouTubeSearch(
+        currentChapter + " one shot revision"
+      );
+
+    };
+
+  }
+
+
+  if(notesBtn){
+
+    notesBtn.onclick = function(){
+
+      openGoogleSearch(
+        currentChapter + " handwritten notes"
+      );
+
+    };
+
+  }
+
+
+  if(practiceBtn){
+
+    practiceBtn.onclick = function(){
+
+      openGoogleSearch(
+        currentChapter + " practice questions"
+      );
+
+    };
+
+  }
+
+
+  if(pyqBtn){
+
+    pyqBtn.onclick = function(){
+
+      openGoogleSearch(
+        currentChapter + " previous year questions"
+      );
+
+    };
+
+  }
+
+}
+
+
+/* ================= SEARCH HELPERS ================= */
+
+function openYouTubeSearch(query){
+
+  window.open(
+    "https://www.youtube.com/results?search_query=" +
+    encodeURIComponent(query),
+    "_blank"
+  );
+
+}
+
+
+function openGoogleSearch(query){
+
+  window.open(
+    "https://www.google.com/search?q=" +
+    encodeURIComponent(query),
+    "_blank"
+  );
+
+}
+
+
+/* ================= EXAM ================= */
+
+function openExam(exam){
+
+  currentExam = exam;
+
+  const title =
+    document.getElementById("examTitle");
+
+  if(title){
+    title.textContent =
+      exam + " Preparation";
+  }
+
+  setupExamButtons();
+
+  showPage("exam");
+
+}
+
+
+function setupExamButtons(){
+
+  const lecture =
+    document.getElementById("examLectureBtn");
+
+  const material =
+    document.getElementById("examMaterialBtn");
+
+  const pyq =
+    document.getElementById("examPyqBtn");
+
+
+  if(lecture){
+
+    lecture.onclick = function(){
+
+      openYouTubeSearch(
+        currentExam + " entrance preparation"
+      );
+
+    };
+
+  }
+
+
+  if(material){
+
+    material.onclick = function(){
+
+      openGoogleSearch(
+        currentExam + " entrance study material"
+      );
+
+    };
+
+  }
+
+
+  if(pyq){
+
+    pyq.onclick = function(){
+
+      openGoogleSearch(
+        currentExam + " previous year questions"
+      );
+
+    };
+
+  }
+
+}
+
+
+/* ================= AI ================= */
+
+function createPlan(){
+
+  const input =
+    document.getElementById("aiText");
+
+  const result =
+    document.getElementById("aiResult");
+
+  if(!input || !result){
+    return;
+  }
+
+  const text =
+    input.value.trim();
+
+  if(!text){
+
+    result.classList.remove("hidden");
+
+    result.innerHTML =
+      "<strong>⚠️ Thoda detail batao.</strong><br>" +
+      "Example: Class 10, Maths + Science, 3 hours daily.";
+
+    return;
+
+  }
+
+  result.classList.remove("hidden");
+
+  result.innerHTML =
+    "<strong>✨ Your Study Plan</strong><br><br>" +
+    "📚 45 min — Main subject<br>" +
+    "✍️ 30 min — Notes / revision<br>" +
+    "📝 30 min — Practice<br>" +
+    "🔁 15 min — Quick recap<br><br>" +
+    "🔥 Focus on one task at a time.";
+
+}
+
+
+/* ================= DAILY PLAN ================= */
+
+function generateDailyPlan(){
+
+  const classValue =
+    document.getElementById("planClass").value;
+
+  const timeValue =
+    document.getElementById("planTime").value;
+
+  const subject =
+    document.getElementById("planSubject").value;
+
+  const goal =
+    document.getElementById("planGoal").value;
+
+  const result =
+    document.getElementById("dailyResult");
+
+
+  if(
+    !classValue ||
+    !timeValue ||
+    !subject ||
+    !goal
+  ){
+
+    result.classList.remove("hidden");
+
+    result.innerHTML =
+      "<strong>⚠️ Almost there!</strong><br>" +
+      "Please choose all four options.";
+
+    return;
+
+  }
+
+
+  let plan = "";
+
+
+  if(goal === "new"){
+
+    plan =
+      "🎥 Learn the concept — 40 min<br>" +
+      "✍️ Make short notes — 20 min<br>" +
+      "📝 Practice — 20 min";
+
+  }
+
+
+  else if(goal === "revision"){
+
+    plan =
+      "📖 Revise the chapter — 30 min<br>" +
+      "🧠 Active recall — 20 min<br>" +
+      "📝 Questions — 30 min";
+
+  }
+
+
+  else if(goal === "practice"){
+
+    plan =
+      "📚 Quick concept review — 20 min<br>" +
+      "📝 Practice questions — 45 min<br>" +
+      "🔍 Check mistakes — 15 min";
+
+  }
+
+
+  else if(goal === "pyq"){
+
+    plan =
+      "📖 Quick revision — 20 min<br>" +
+      "📝 Solve PYQs — 45 min<br>" +
+      "🔍 Analyse mistakes — 15 min";
+
+  }
+
+
+  result.classList.remove("hidden");
+
+  result.innerHTML =
+    "<strong>🎯 Class " +
+    escapeHTML(classValue) +
+    " • " +
+    escapeHTML(subject) +
+    "</strong><br><br>" +
+    "<strong>Today's Mission</strong><br><br>" +
+    plan +
+    "<br><br>" +
+    "⏱️ Available time: " +
+    escapeHTML(timeValue) +
+    " hour" +
+    (Number(timeValue) > 1 ? "s" : "") +
+    "<br><br>" +
+    "🔥 Mission complete karne par next topic start karo.";
+
+}
+
+
+/* ================= START ================= */
+
+showPage("home");
+
+    </script>
 function openSubject(subject){
 
   currentSubject = subject;
