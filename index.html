@@ -685,7 +685,78 @@ footer{
 
 </section>
 
+<!-- DAILY STUDY PLAN -->
 
+<section id="dailyPlan" class="page hidden">
+
+  <button class="back" onclick="showPage('home')">← Back</button>
+
+  <div class="label">TODAY'S MISSION</div>
+
+  <h2>Aaj kya padhu? 🧠</h2>
+
+  <p class="subtitle">
+    Apni study details batao aur Padhlo tumhare liye
+    aaj ka simple study mission banayega.
+  </p>
+
+  <div class="ai-box">
+
+    <label><strong>🎓 Your Class</strong></label>
+
+    <select id="planClass" class="search">
+      <option value="">Choose class</option>
+      <option value="9">Class 9</option>
+      <option value="10">Class 10</option>
+      <option value="11">Class 11</option>
+      <option value="12">Class 12</option>
+    </select>
+
+
+    <label><strong>⏱️ Available Time</strong></label>
+
+    <select id="planTime" class="search">
+      <option value="">Choose time</option>
+      <option value="1">1 hour</option>
+      <option value="2">2 hours</option>
+      <option value="3">3 hours</option>
+      <option value="4">4+ hours</option>
+    </select>
+
+
+    <label><strong>📚 What do you want to focus on?</strong></label>
+
+    <select id="planSubject" class="search">
+      <option value="">Choose subject</option>
+      <option>Mathematics</option>
+      <option>Science</option>
+      <option>Social Science</option>
+      <option>English</option>
+      <option>Hindi</option>
+    </select>
+
+
+    <label><strong>🎯 What's your goal today?</strong></label>
+
+    <select id="planGoal" class="search">
+      <option value="">Choose goal</option>
+      <option value="new">Learn a new chapter</option>
+      <option value="revision">Revise</option>
+      <option value="practice">Practice questions</option>
+      <option value="pyq">Solve PYQs</option>
+    </select>
+
+
+    <button class="primary" onclick="generateDailyPlan()">
+      Build My Mission ✨
+    </button>
+
+  </div>
+
+
+  <div id="dailyResult" class="result hidden"></div>
+
+</section>
 <!-- ENTRANCE -->
 
 <section id="entrance" class="page hidden">
