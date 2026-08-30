@@ -838,9 +838,7 @@ footer{
 
     <textarea
       id="aiText"
-      placeholder="Example: Class 10, Maths + Science, 3 hours daily..."></textarea>
-
-    <button class="primary" onclick="createPlan()">
+      placeholder="Example: Class 10, Maths + Science, 3 h <button class="primary" onclick="createPlan()">
       Create My Plan ✨
     </button>
 
@@ -886,7 +884,7 @@ function showPage(id){
   const target = document.getElementById(id);
 
   if(!target){
-    console.error("Page not found:",id);
+    console.error("Page not found:", id);
     return;
   }
 
@@ -896,6 +894,39 @@ function showPage(id){
     top:0,
     behavior:"smooth"
   });
+}
+
+
+/* ================= ESCAPE HTML ================= */
+
+function escapeHTML(text){
+
+  return String(text)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* ================= ICONS ================= */
+
+function getSubjectIcon(subject){
+
+  const icons = {
+    "Mathematics":"📐",
+    "Science":"🔬",
+    "Social Science":"🌍",
+    "English":"📖",
+    "Hindi":"📝",
+    "Physics":"⚡",
+    "Chemistry":"🧪",
+    "Biology":"🧬"
+  };
+
+  return icons[subject] || "📚";
 }
 
 
@@ -939,12 +970,6 @@ const subjectsByClass = {
 
 
 /* ================= CHAPTERS ================= */
-
-/*
-  These are organised by subject.
-  The same subject data can be expanded later
-  for class-specific syllabi.
-*/
 
 const chaptersBySubject = {
 
@@ -1062,35 +1087,26 @@ const chaptersBySubject = {
 };
 
 
-/* ================= ICONS ================= */
-
-function getSubjectIcon(subject){
-
-  const icons = {
-    "Mathematics":"📐",
-    "Science":"🔬",
-    "Social Science":"🌍",
-    "English":"📖",
-    "Hindi":"📝",
-    "Physics":"⚡",
-    "Chemistry":"🧪",
-    "Biology":"🧬"
-  };
-
-  return icons[subject] || "📚";
-}
-
-
 /* ================= CLASS ================= */
 
 function openClass(number){
 
   currentClass = String(number);
 
-  document.getElementById("classLabel").textContent =
-    "CLASS " + number;
+  const classLabel =
+    document.getElementById("classLabel");
 
-  document.getElementById("subjectSearch").value = "";
+  const subjectSearch =
+    document.getElementById("subjectSearch");
+
+  if(classLabel){
+    classLabel.textContent =
+      "CLASS " + number;
+  }
+
+  if(subjectSearch){
+    subjectSearch.value = "";
+  }
 
   renderSubjects(
     subjectsByClass[number] || []
@@ -1106,6 +1122,11 @@ function renderSubjects(list){
 
   const box =
     document.getElementById("subjectsList");
+
+  if(!box){
+    console.error("subjectsList not found");
+    return;
+  }
 
   box.innerHTML = "";
 
@@ -1136,42 +1157,235 @@ function renderSubjects(list){
       "</strong>" +
       "<small>Open chapters →</small>";
 
-    button.onclick = function(){
+    button.addEventListener("click",function(){
       openSubject(subject);
-    };
+    });
 
     box.appendChild(button);
+
   });
+
 }
 
 
 /* ================= SUBJECT SEARCH ================= */
 
-document
-.getElementById("subjectSearch")
-.addEventListener("input",function(){
+const subjectSearch =
+  document.getElementById("subjectSearch");
 
-  const query =
-    this.value.toLowerCase().trim();
+if(subjectSearch){
 
-  const subjects =
-    subjectsByClass[currentClass] || [];
+  subjectSearch.addEventListener("input",function(){
 
-  const filtered =
-    subjects.filter(function(subject){
+    const query =
+      this.value.toLowerCase().trim();
 
-      return subject
-      .toLowerCase()
-      .includes(query);
+    const subjects =
+      subjectsByClass[currentClass] || [];
 
-    });
+    const filtered =
+      subjects.filter(function(subject){
 
-  renderSubjects(filtered);
-});
+        return subject
+          .toLowerCase()
+          .includes(query);
+
+      });
+
+    renderSubjects(filtered);
+
+  });
+
+}
 
 
 /* ================= SUBJECT ================= */
 
+function openSubject(subject){
+
+  currentSubject = subject;
+
+  const subjectLabel =
+    document.getElementById("subjectLabel");
+
+  const chapterSearch =
+    document.getElementById("chapterSearch");
+
+  if(subjectLabel){
+    subjectLabel.textContent =
+      subject.toUpperCase();
+  }
+
+  if(chapterSearch){
+    chapterSearch.value = "";
+  }
+
+  renderChapters(
+    chaptersBySubject[subject] || []
+  );
+
+  showPage("chapters");
+}
+
+
+/* ================= CHAPTER RENDER ================= */
+
+function renderChapters(list){
+
+  const box =
+    document.getElementById("chaptersList");
+
+  if(!box){
+    console.error("chaptersList not found");
+    return;
+  }
+
+  box.innerHTML = "";
+
+  if(list.length === 0){
+
+    box.innerHTML =
+      "<div class='notice'>" +
+      "<strong>No chapters found.</strong>" +
+      "<p>Try another search.</p>" +
+      "</div>";
+
+    return;
+  }
+
+  list.forEach(function(chapter,index){
+
+    const button =
+      document.createElement("button");
+
+    button.className = "chapter";
+    button.type = "button";
+
+    button.innerHTML =
+      "<span class='chapter-number'>" +
+      (index + 1) +
+      "</span>" +
+      "<span class='chapter-title'>" +
+      escapeHTML(chapter) +
+      "</span>" +
+      "<small>Open study material →</small>";
+
+    button.addEventListener("click",function(){
+      openChapter(chapter);
+    });
+
+    box.appendChild(button);
+
+  });
+
+}
+
+
+/* ================= CHAPTER SEARCH ================= */
+
+const chapterSearch =
+  document.getElementById("chapterSearch");
+
+if(chapterSearch){
+
+  chapterSearch.addEventListener("input",function(){
+
+    const query =
+      this.value.toLowerCase().trim();
+
+    const chapters =
+      chaptersBySubject[currentSubject] || [];
+
+    const filtered =
+      chapters.filter(function(chapter){
+
+        return chapter
+          .toLowerCase()
+          .includes(query);
+
+      });
+
+    renderChapters(filtered);
+
+  });
+
+}
+
+
+/* ================= CHAPTER ================= */
+
+function openChapter(chapter){
+
+  currentChapter = chapter;
+
+  const title =
+    document.getElementById("chapterTitle");
+
+  if(title){
+    title.textContent = chapter;
+  }
+
+  renderTeacherResources();
+
+  setupResourceButtons();
+
+  showPage("resources");
+
+}
+
+
+/* ================= TEACHERS ================= */
+
+function renderTeacherResources(){
+
+  const box =
+    document.getElementById("teacherBox");
+
+  if(!box){
+    return;
+  }
+
+  box.innerHTML = "";
+
+  const teachers = [
+
+    {
+      name:"Prashant Kirad",
+      icon:"🎥",
+      text:"Concept explanation and revision lectures"
+    },
+
+    {
+      name:"Magnet Brains",
+      icon:"🎓",
+      text:"Detailed chapter-wise lectures"
+    },
+
+    {
+      name:"Best available teacher",
+      icon:"⭐",
+      text:"Additional learning resources"
+    }
+
+  ];
+
+
+  teachers.forEach(function(teacher){
+
+    const button =
+      document.createElement("button");
+
+    button.className =
+      "resource teacher";
+
+    button.type = "button";
+
+    button.innerHTML =
+      "<div class='resource-icon'>" +
+      teacher.icon +
+      "</div>"
+
+/* 
 function openSubject(subject){
 
   currentSubject = subject;
