@@ -516,6 +516,194 @@ button{
   font-size:22px;
   padding-left:10px;
     }
+
+  /* SCIENCE CHAPTER THEME */
+
+.chapter-section{
+  margin-top:30px;
+}
+
+.chapter-heading{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin:0 0 14px 3px;
+
+  font-size:18px;
+  font-weight:800;
+  color:#171820;
+}
+
+.chapter-card{
+  width:100%;
+  box-sizing:border-box;
+
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:22px;
+
+  padding:15px 16px;
+  margin-bottom:12px;
+
+  display:flex;
+  align-items:center;
+  text-align:left;
+
+  box-shadow:0 7px 22px rgba(30,35,55,.05);
+
+  cursor:pointer;
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease;
+}
+
+.chapter-card:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow);
+  border-color:#d8d4ff;
+}
+
+.chapter-card:active{
+  transform:scale(.985);
+}
+
+.chapter-card span{
+  width:44px;
+  height:44px;
+  min-width:44px;
+
+  border-radius:14px;
+
+  background:#efedff;
+  color:var(--purple);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:13px;
+  font-weight:800;
+
+  margin-right:14px;
+}
+
+.chapter-card strong{
+  flex:1;
+
+  color:#171820;
+  font-size:15px;
+  font-weight:750;
+  line-height:1.35;
+}
+
+/* Hide material preview from chapter cards */
+
+.chapter-card small{
+  display:none !important;
+}
+
+/* MATERIAL CARDS */
+
+.material-list{
+  display:grid;
+  gap:12px;
+}
+
+.material-card{
+  width:100%;
+  box-sizing:border-box;
+
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:22px;
+
+  padding:15px 16px;
+
+  display:flex;
+  align-items:center;
+  text-align:left;
+
+  box-shadow:0 7px 22px rgba(30,35,55,.05);
+
+  cursor:pointer;
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease;
+}
+
+.material-card:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow);
+  border-color:#d8d4ff;
+}
+
+.material-card:active{
+  transform:scale(.985);
+}
+
+.material-icon{
+  width:50px;
+  height:50px;
+  min-width:50px;
+
+  border-radius:16px;
+
+  background:#efedff;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:23px;
+
+  margin-right:14px;
+}
+
+.material-content{
+  flex:1;
+}
+
+.material-content strong{
+  display:block;
+
+  color:#171820;
+  font-size:15px;
+  font-weight:750;
+}
+
+.material-content small{
+  display:block;
+
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.4;
+
+  margin-top:4px;
+}
+
+.material-arrow{
+  color:#858b9a;
+  font-size:21px;
+  margin-left:10px;
+  }
+  /* PAGE TRANSITION */
+  .page{
+  animation:pageEnter .28s ease-out;
+}
+
+@keyframes pageEnter{
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
 </style>
 </head>
 
@@ -950,7 +1138,7 @@ button{
 
   <div class="material-list">
 
-    <button class="material-card" type="button">
+    <button class="material-card" type="button" onclick="showPage('motion-videos')">
       <div class="material-icon">📚</div>
       <div class="material-content">
         <strong>Notes</strong>
@@ -991,6 +1179,69 @@ button{
       <div class="material-content">
         <strong>Revision</strong>
         <small>Rapid revision & quick revision notes</small>
+      </div>
+      <span class="material-arrow">→</span>
+    </button>
+
+  </div>
+
+</section>
+  <!-- MOTION VIDEO LECTURES -->
+
+<section id="motion-videos" class="page hidden">
+
+  <button
+    class="back-btn"
+    type="button"
+    onclick="showPage('motion')"
+  >
+    ← Back
+  </button>
+
+  <div class="page-label">
+    CLASS 9 • PHYSICS • MOTION
+  </div>
+
+  <h2>Video Lectures</h2>
+
+  <p class="section-intro">
+    Choose the teacher whose explanation works best for you.
+  </p>
+
+  <div class="material-list">
+
+    <button class="material-card" type="button">
+      <div class="material-icon">🎥</div>
+      <div class="material-content">
+        <strong>Next Toppers</strong>
+        <small>Complete chapter lecture</small>
+      </div>
+      <span class="material-arrow">→</span>
+    </button>
+
+    <button class="material-card" type="button">
+      <div class="material-icon">🎥</div>
+      <div class="material-content">
+        <strong>PW Foundation</strong>
+        <small>Complete chapter lecture</small>
+      </div>
+      <span class="material-arrow">→</span>
+    </button>
+
+    <button class="material-card" type="button">
+      <div class="material-icon">🎥</div>
+      <div class="material-content">
+        <strong>Magnet Brains</strong>
+        <small>Detailed chapter explanation</small>
+      </div>
+      <span class="material-arrow">→</span>
+    </button>
+
+    <button class="material-card" type="button">
+      <div class="material-icon">🎥</div>
+      <div class="material-content">
+        <strong>Science &amp; Fun</strong>
+        <small>Alternative chapter explanation</small>
       </div>
       <span class="material-arrow">→</span>
     </button>
