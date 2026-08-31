@@ -444,6 +444,78 @@ button{
 .hidden{
   display:none !important;
     }
+  /* SUBJECTS PAGE */
+
+.section-intro{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  margin:-6px 0 20px;
+}
+
+.subject-list{
+  display:grid;
+  gap:12px;
+}
+
+.subject-card{
+  width:100%;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:20px;
+  padding:16px;
+  display:flex;
+  align-items:center;
+  text-align:left;
+  box-shadow:0 7px 22px rgba(30,35,55,.05);
+  transition:.2s;
+}
+
+.subject-card:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow);
+}
+
+.subject-icon{
+  width:52px;
+  height:52px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  margin-right:14px;
+  flex-shrink:0;
+}
+
+.math-icon{background:#efedff;}
+.science-icon{background:#e8f8f1;}
+.sst-icon{background:#e9f2ff;}
+.english-icon{background:#fff3dc;}
+.hindi-icon{background:#ffecef;}
+
+.subject-content{
+  min-width:0;
+}
+
+.subject-content strong{
+  display:block;
+  font-size:15px;
+}
+
+.subject-content small{
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+  margin-top:5px;
+}
+
+.subject-arrow{
+  margin-left:auto;
+  color:#858b9a;
+  font-size:22px;
+  padding-left:10px;
+    }
 </style>
 </head>
 
@@ -559,7 +631,7 @@ button{
 
   <div class="class-grid">
 
-    <button class="class-card" type="button" onclick="openClass(9)">
+    <button class="class-card" type="button" onclick="showPage('subjects')">
   <span>📘</span>
   <strong>Class 9</strong>
   <small>Subjects & study material</small>
@@ -589,12 +661,145 @@ button{
   </div>
 
 </section>
+<!-- SUBJECTS PAGE -->
+
+<section id="subjects" class="page hidden">
+
+  <button
+    class="back-btn"
+    type="button"
+    onclick="showPage('school')"
+  >
+    ← Back
+  </button>
+
+
+  <div class="page-label">
+    CLASS 9 • STUDY HUB
+  </div>
+
+  <h2>
+    What do you want to study?
+  </h2>
+
+  <p class="section-intro">
+    Pick a subject and dive into chapters, notes,
+    lectures and practice.
+  </p>
+
+
+  <div class="subject-list">
+
+
+    <!-- MATHEMATICS -->
+
+    <button class="subject-card" type="button">
+
+      <div class="subject-icon math-icon">
+        📐
+      </div>
+
+      <div class="subject-content">
+        <strong>Mathematics</strong>
+        <small>
+          Concepts • Chapters • Practice
+        </small>
+      </div>
+
+      <span class="subject-arrow">→</span>
+
+    </button>
+
+
+    <!-- SCIENCE -->
+
+    <button class="subject-card" type="button">
+
+      <div class="subject-icon science-icon">
+        🔬
+      </div>
+
+      <div class="subject-content">
+        <strong>Science</strong>
+        <small>
+          Physics • Chemistry • Biology
+        </small>
+      </div>
+
+      <span class="subject-arrow">→</span>
+
+    </button>
+
+
+    <!-- SOCIAL SCIENCE -->
+
+    <button class="subject-card" type="button">
+
+      <div class="subject-icon sst-icon">
+        🌍
+      </div>
+
+      <div class="subject-content">
+        <strong>Social Science</strong>
+        <small>
+          History • Civics • Geography • Economics
+        </small>
+      </div>
+
+      <span class="subject-arrow">→</span>
+
+    </button>
+
+
+    <!-- ENGLISH -->
+
+    <button class="subject-card" type="button">
+
+      <div class="subject-icon english-icon">
+        📖
+      </div>
+
+      <div class="subject-content">
+        <strong>English</strong>
+        <small>
+          Main Book • Supplementary • Grammar
+        </small>
+      </div>
+
+      <span class="subject-arrow">→</span>
+
+    </button>
+
+
+    <!-- HINDI -->
+
+    <button class="subject-card" type="button">
+
+      <div class="subject-icon hindi-icon">
+        ✍️
+      </div>
+
+      <div class="subject-content">
+        <strong>Hindi</strong>
+        <small>
+          Literature • Vyakaran • Lekhan
+        </small>
+      </div>
+
+      <span class="subject-arrow">→</span>
+
+    </button>
+
+
+  </div>
+
+</section>
   </main>
 
 </div>
 
 
-}
+
 <script>
 function showPage(id){
 
