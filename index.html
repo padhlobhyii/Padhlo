@@ -371,6 +371,77 @@ button{
   }
 
   }
+  .page-label{
+  color:var(--purple);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:2px;
+  margin-bottom:12px;
+}
+
+.back-btn{
+  border:1px solid var(--line);
+  background:#fff;
+  color:#666c7b;
+  padding:10px 14px;
+  border-radius:12px;
+  margin-bottom:24px;
+}
+
+.back-btn:hover{
+  color:var(--purple);
+}
+
+.class-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.class-card{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:20px;
+  padding:20px 17px;
+  min-height:130px;
+  text-align:left;
+  box-shadow:0 7px 22px rgba(30,35,55,.04);
+  transition:.2s;
+}
+
+.class-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+  border-color:#d8d4ff;
+}
+
+.class-card span{
+  display:block;
+  font-size:27px;
+  margin-bottom:12px;
+}
+
+.class-card strong{
+  display:block;
+  font-size:17px;
+  margin-bottom:6px;
+}
+
+.class-card small{
+  color:var(--muted);
+  line-height:1.4;
+}
+
+@media(max-width:520px){
+  .class-grid{
+    gap:11px;
+  }
+
+  .class-card{
+    padding:17px 14px;
+    min-height:120px;
+  }
+
 </style>
 </head>
 
@@ -464,10 +535,87 @@ button{
   </button>
 
 </div>
+<!-- SCHOOL PAGE -->
+
+<section id="school" class="page hidden">
+
+  <button
+    class="back-btn"
+    type="button"
+    onclick="showPage('home')"
+  >
+    ← Back
+  </button>
+
+  <div class="page-label">
+    SCHOOL STUDY
+  </div>
+
+  <h2>
+    Choose your class
+  </h2>
+
+  <div class="class-grid">
+
+    <button class="class-card" type="button" onclick="openClass(9)">
+  <span>📘</span>
+  <strong>Class 9</strong>
+  <small>Subjects & study material</small>
+    </button>
+
+
+    <button class="class-card" type="button">
+      <span>🔥</span>
+      <strong>Class 10</strong>
+      <small>Board preparation</small>
+    </button>
+
+
+    <button class="class-card" type="button">
+      <span>📗</span>
+      <strong>Class 11</strong>
+      <small>Subjects & study material</small>
+    </button>
+
+
+    <button class="class-card" type="button">
+      <span>🎓</span>
+      <strong>Class 12</strong>
+      <small>Board preparation</small>
+    </button>
+
+  </div>
+
+</section>
   </main>
 
 </div>
+  function openClass(number){
 
+  document.getElementById("classLabel").textContent =
+    "CLASS " + number;
+
+  showPage("subjects");
+
+}
+<script>
+function showPage(id){
+
+  const pages = document.querySelectorAll(".page");
+
+  pages.forEach(function(page){
+    page.classList.add("hidden");
+  });
+
+  const target = document.getElementById(id);
+
+  if(target){
+    target.classList.remove("hidden");
+    window.scrollTo(0,0);
+  }
+
+}
+</script>
 </body>
 
 </html>
