@@ -11,7 +11,234 @@
   >
 
   <title>Padhlo — Study Smarter</title>
+<style>
 
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --bg:#f6f7ff;
+  --card:#ffffff;
+  --text:#171923;
+  --muted:#74798a;
+  --purple:#6657f5;
+  --purple2:#8b5cf6;
+  --line:#e7e9f1;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(102,87,245,.10),
+      transparent 30%
+    ),
+    var(--bg);
+  color:var(--text);
+  min-height:100vh;
+}
+
+button{
+  font:inherit;
+}
+
+#app{
+  width:92%;
+  max-width:850px;
+  margin:auto;
+  padding:24px 0 60px;
+}
+
+
+/* HEADER */
+
+.site-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:55px;
+}
+
+.logo-box{
+  width:50px;
+  height:50px;
+  border-radius:16px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:linear-gradient(
+    135deg,
+    var(--purple),
+    var(--purple2)
+  );
+
+  color:white;
+  font-size:24px;
+  font-weight:900;
+
+  box-shadow:
+    0 10px 25px
+    rgba(102,87,245,.25);
+
+  position:relative;
+  overflow:hidden;
+}
+
+
+/* Small book effect */
+
+.logo-box::after{
+  content:"";
+  position:absolute;
+
+  width:20px;
+  height:13px;
+
+  border:2px solid rgba(255,255,255,.8);
+  border-top:0;
+
+  bottom:9px;
+  left:15px;
+
+  border-radius:0 0 5px 5px;
+
+  transform:rotate(-4deg);
+}
+
+
+.brand-name{
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:-1.5px;
+}
+
+.brand-name span{
+  font-weight:400;
+}
+
+.tagline{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:3px;
+}
+
+
+/* HERO */
+
+.hero{
+  background:rgba(255,255,255,.72);
+
+  border:1px solid var(--line);
+
+  border-radius:26px;
+
+  padding:28px 24px;
+
+  box-shadow:
+    0 15px 40px
+    rgba(40,45,80,.07);
+
+  animation:heroIn .45s ease;
+}
+
+.creator{
+  display:inline-block;
+
+  padding:8px 12px;
+
+  border-radius:999px;
+
+  background:#f0efff;
+
+  color:var(--purple);
+
+  font-size:12px;
+  font-weight:700;
+
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:clamp(40px,9vw,65px);
+
+  line-height:.95;
+
+  letter-spacing:-4px;
+
+  margin-bottom:18px;
+}
+
+.hero h1 span{
+  background:
+    linear-gradient(
+      90deg,
+      var(--purple),
+      var(--purple2)
+    );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  color:transparent;
+}
+
+.hero p{
+  color:var(--muted);
+
+  font-size:15px;
+
+  line-height:1.6;
+
+  max-width:600px;
+}
+
+
+/* ANIMATION */
+
+@keyframes heroIn{
+
+  from{
+    opacity:0;
+    transform:translateY(12px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:520px){
+
+  #app{
+    width:90%;
+  }
+
+  .site-header{
+    margin-bottom:35px;
+  }
+
+  .hero{
+    padding:24px 19px;
+  }
+
+  .hero h1{
+    letter-spacing:-3px;
+  }
+
+}
+
+</style>
 </head>
 
 
