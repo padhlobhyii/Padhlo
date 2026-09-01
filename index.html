@@ -703,7 +703,234 @@ button{
     opacity:1;
     transform:translateY(0);
   }
+/* ================================
+   PADHLO • PREMIUM COLOUR THEME
+   ================================ */
 
+:root {
+  --padhlo-bg: #f6f8ff;
+  --padhlo-text: #172033;
+  --padhlo-muted: #68738a;
+  --padhlo-card: rgba(255, 255, 255, 0.88);
+  --padhlo-border: rgba(100, 116, 139, 0.14);
+  --padhlo-shadow: 0 12px 35px rgba(30, 41, 59, 0.10);
+}
+
+/* Main background */
+body {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(99,102,241,.13), transparent 30%),
+    radial-gradient(circle at 90% 20%, rgba(14,165,233,.12), transparent 28%),
+    linear-gradient(135deg, #f8f9ff 0%, #eef4ff 100%);
+  color: var(--padhlo-text);
+}
+
+/* Page */
+.page {
+  animation: padhloPage .35s ease;
+}
+
+@keyframes padhloPage {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Headings */
+.page h1,
+.page h2,
+.page h3 {
+  color: #172033;
+  letter-spacing: -0.5px;
+}
+
+.page-label {
+  color: #6366f1;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+/* Intro text */
+.section-intro {
+  color: var(--padhlo-muted);
+  line-height: 1.7;
+}
+
+/* All cards */
+.material-card {
+  position: relative;
+  overflow: hidden;
+
+  background: var(--padhlo-card);
+  border: 1px solid var(--padhlo-border);
+  border-radius: 22px;
+
+  box-shadow: var(--padhlo-shadow);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease;
+}
+
+/* Small shine texture */
+.material-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.55),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+  transition: left .55s ease;
+  pointer-events: none;
+}
+
+.material-card:hover::before {
+  left: 130%;
+}
+
+.material-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 42px rgba(30, 41, 59, 0.15);
+  border-color: rgba(99,102,241,.25);
+}
+
+.material-card:active {
+  transform: scale(.98);
+}
+
+/* Icons */
+.material-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(99,102,241,.14),
+    rgba(14,165,233,.14)
+  );
+
+  font-size: 23px;
+  flex-shrink: 0;
+}
+
+/* Card text */
+.material-content {
+  min-width: 0;
+}
+
+.material-content strong {
+  display: block;
+  color: #172033;
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.material-content small {
+  display: block;
+  color: #748096;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* Arrow */
+.material-arrow {
+  color: #6366f1;
+  font-size: 21px;
+  font-weight: 800;
+
+  transition:
+    transform .2s ease,
+    color .2s ease;
+}
+
+.material-card:hover .material-arrow {
+  transform: translateX(5px);
+  color: #4f46e5;
+}
+
+/* Back button */
+.back-btn {
+  border: 0;
+  border-radius: 13px;
+
+  padding: 10px 15px;
+
+  background: rgba(99,102,241,.10);
+  color: #4f46e5;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    transform .2s ease;
+}
+
+.back-btn:hover {
+  background: rgba(99,102,241,.17);
+  transform: translateX(-3px);
+}
+
+/* Links used as cards */
+a.material-card {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Mobile polish */
+@media (max-width: 600px) {
+
+  .page h1,
+  .page h2 {
+    font-size: 27px;
+    line-height: 1.15;
+  }
+
+  .material-card {
+    border-radius: 19px;
+  }
+
+  .material-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+  }
+
+  .material-content strong {
+    font-size: 15px;
+  }
+
+  .material-content small {
+    font-size: 12px;
+  }
+  }
 </style>
 </head>
 
@@ -1235,7 +1462,7 @@ button{
 
       <div class="material-content">
         <strong>Important Questions</strong>
-        <small>Practice Motion questions with answers</small>
+        <small>make your own worksheet</small>
       </div>
 
       <span class="material-arrow">→</span>
@@ -1279,7 +1506,7 @@ button{
       <div class="material-icon">📖</div>
 
       <div class="material-content">
-        <strong>conceptConcept Notes</strong>
+        <strong>concept Notes</strong>
         <small>Chapter concepts, definitions & key points</small>
       </div>
 
